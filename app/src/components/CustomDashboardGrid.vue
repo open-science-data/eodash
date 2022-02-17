@@ -29,7 +29,7 @@
                 v-on="on"
                 @click="featureTitle = element.title; featurePOI = element.poi; dialog = true"
               >
-                <v-icon small>mdi-pencil</v-icon>
+                <v-icon small>{{ icons.pencil }}</v-icon>
               </v-btn>
             </template>
             <span>Edit element title</span>
@@ -90,7 +90,7 @@
                   @click="performChange('resizeFeatureShrink', element)"
                 >
                   <v-icon dark>
-                    mdi-arrow-collapse
+                    {{ icons.arrowCollapse }}
                   </v-icon>
                 </v-btn>
               </template>
@@ -110,7 +110,7 @@
                   @click="performChange('resizeFeatureExpand', element)"
                 >
                   <v-icon dark>
-                    mdi-arrow-expand
+                    {{ icons.arrowExpand }}
                   </v-icon>
                 </v-btn>
               </template>
@@ -128,7 +128,7 @@
                   @click="performChange('removeFeature', element)"
                 >
                   <v-icon>
-                    mdi-delete
+                    {{ icons.delete }}
                   </v-icon>
                 </v-btn>
               </template>
@@ -148,10 +148,10 @@
                   @click="update(element)"
                 >
                   <v-icon v-if="element.mapInfo" dark>
-                    mdi-map-outline
+                    {{ icons.mapOutline }}
                   </v-icon>
                   <v-icon v-if="element.text" dark>
-                    mdi-pencil
+                    {{ icons.pencil }}
                   </v-icon>
                 </v-btn>
               </template>
@@ -173,7 +173,7 @@
                   @click="performChange('moveFeatureUp', element)"
                 >
                   <v-icon dark>
-                    mdi-chevron-left
+                    {{ icons.chevronLeft }}
                   </v-icon>
                 </v-btn>
               </template>
@@ -192,7 +192,7 @@
                   @click="performChange('moveFeatureDown', element)"
                 >
                   <v-icon dark>
-                    mdi-chevron-right
+                    {{ icons.chevronRight }}
                   </v-icon>
                 </v-btn>
               </template>
@@ -252,6 +252,16 @@ import LoadingAnimation from '@/components/LoadingAnimation.vue';
 import { loadIndicatorData } from '@/utils';
 import { mapGetters, mapState, mapActions } from 'vuex';
 
+import {
+  mdiPencil,
+  mdiArrowCollapse,
+  mdiArrowExpand,
+  mdiDelete,
+  mdiMapOutline,
+  mdiChevronLeft,
+  mdiChevronRight,
+} from '@mdi/js';
+
 export default {
   props: {
     enableEditing: Boolean,
@@ -272,6 +282,15 @@ export default {
     serverZoom: {},
     serverCenter: {},
     savedPoi: null,
+    icons: {
+      pencil: mdiPencil,
+      arrowCollapse: mdiArrowCollapse,
+      arrowExpand: mdiArrowExpand,
+      delete: mdiDelete,
+      mapOutline: mdiMapOutline,
+      chevronLeft: mdiChevronLeft,
+      chevronRight: mdiChevronRight,
+    },
   }),
   computed: {
     ...mapGetters('dashboard', {
