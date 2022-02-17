@@ -9,13 +9,13 @@
         style="width: 125px"
       >
         Map
-        <v-icon>mdi-map-search</v-icon>
+        <v-icon>{{ icons.mapSearch }}</v-icon>
       </v-tab>
       <v-tab
         style="width: 125px"
       >
         Table
-        <v-icon>mdi-table-search</v-icon>
+        <v-icon>{{ icons.tableSearch }}</v-icon>
       </v-tab>
     </v-tabs>
     <v-tabs-items
@@ -29,7 +29,7 @@
           <v-expansion-panel>
             <v-expansion-panel-header class="panel-header">
               <div class="d-flex align-center">
-                <v-icon left color="primary">mdi-earth</v-icon>
+                <v-icon left color="primary">{{ icons.earth }}</v-icon>
                 <span
                   v-if="$vuetify.breakpoint.smAndUp || panel !== undefined && panel !== null"
                 >Global Indicators</span>
@@ -66,7 +66,7 @@
                             ? baseConfig.indicatorClassesIcons[baseConfig
                               .indicatorsDefinition[feature.properties
                                 .indicatorObject.indicator].class]
-                            : 'mdi-lightbulb-on-outline'}}
+                            : icons.lightbulbOnOutline}}
                       </v-icon>
                   </div>
                 </v-list-item-icon>
@@ -94,7 +94,7 @@
               close
               @click:close="resetCountry"
             >
-              <v-icon small left>mdi-filter</v-icon>
+              <v-icon small left>{{ icons.filter }}</v-icon>
               {{ countries.features
                   .find((c) => c.properties.alpha2 === $store.state.features
                     .featureFilters.countries).properties.name }}
@@ -110,7 +110,7 @@
               close
               @click:close="resetIndicator"
             >
-              <v-icon small left>mdi-filter</v-icon>
+              <v-icon small left>{{ icons.filter }}</v-icon>
               {{ getIndicators
                   .find((i) => i.code === $store.state.features.featureFilters.indicators[0])
               && getIndicators
@@ -139,7 +139,7 @@
               close
               @click:close="resetCountry"
             >
-              <v-icon small left>mdi-filter</v-icon>
+              <v-icon small left>{{ icons.filter }}</v-icon>
               {{ countries.features
                   .find((c) => c.properties.alpha2 === $store.state.features
                     .featureFilters.countries).properties.name }}
@@ -155,7 +155,7 @@
               close
               @click:close="resetIndicator"
             >
-              <v-icon small left>mdi-filter</v-icon>
+              <v-icon small left>{{ icons.filter }}</v-icon>
               {{ getIndicators
                   .find((i) => i.code === $store.state.features.featureFilters.indicators[0])
               && getIndicators
@@ -176,6 +176,14 @@ import {
   mapState,
 } from 'vuex';
 
+import {
+  mdiMapSearch,
+  mdiTableSearch,
+  mdiEarth,
+  mdiLightbulbOnOutline,
+  mdiFilter,
+} from '@mdi/js';
+
 import FeatureTable from '@/components/FeatureTable.vue';
 import Map from '@/components/Map.vue';
 
@@ -191,6 +199,13 @@ export default {
       tab: null,
       openGlobalPanel: false,
       panel: this.$vuetify.breakpoint.xsOnly ? null : 0,
+      icons: {
+        mapSearch: mdiMapSearch,
+        tableSearch: mdiTableSearch,
+        earth: mdiEarth,
+        lightbulbOnOutline: mdiLightbulbOnOutline,
+        filter: mdiFilter,
+      },
     };
   },
   computed: {
