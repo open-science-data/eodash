@@ -9,9 +9,32 @@ Component and UI framework based on vue.js and Material Design.
 ### Material Design Icons
 https://materialdesignicons.com/
 
-Collection of icons in material design. Use `mdi-` with icon name, for example:
+Collection of icons in material design. Since we're using the icons provided by the `@mdi/js` package, we first need to import the SVG data into our JavaScript, like this:
 
-`<v-icon>mdi-view-dashboard</v-icon>`
+```javascript
+import mdiClose from '@mdi/js';
+```
+
+Unfortunately, it's not possible to directly reference the imported icons, so it is recommended to put them into an `icons` object in the component data, like this:
+
+```javascript
+{
+    ...
+
+    icons: {
+        close: mdiClose,
+        arrowRight: mdiArrowRight,
+    },
+
+    ...
+}
+```
+
+Finally, the icons (SVG paths) in the object can be used in the `v-icon` component:
+
+```html
+<v-icon>icons.close</v-icon>
+```
 ### Openlayers Map Wrapper
 https://vuelayers.github.io/
 
