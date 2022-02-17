@@ -12,7 +12,7 @@
           outlined
         >
           <v-card-title>
-            <v-icon left color="primary">mdi-chart-line</v-icon>
+            <v-icon left color="primary">{{ icons.chartLine }}</v-icon>
             There's an issue with the displayed data
           </v-card-title>
           <v-responsive :aspect-ratio="4/1">
@@ -26,7 +26,7 @@
             class="ml-3 mb-5"
             @click="showIssueForm = !showIssueForm; issueData = true;"
           >
-            <v-icon left>mdi-pencil</v-icon>
+            <v-icon left>{{ icons.pencil }}</v-icon>
             {{ showIssueForm ? 'close form' : 'fill out form' }}
           </v-btn>
         </v-card>
@@ -40,7 +40,7 @@
           outlined
         >
           <v-card-title>
-            <v-icon left color="primary">mdi-bug</v-icon>
+            <v-icon left color="primary">{{ icons.bug }}</v-icon>
             The Dashboard does not work as expected
           </v-card-title>
           <v-responsive :aspect-ratio="4/1">
@@ -54,7 +54,7 @@
             class="ml-3 mb-5"
             @click="showIssueForm = !showIssueForm; issueData = false;"
           >
-            <v-icon left>mdi-pencil</v-icon>
+            <v-icon left>{{ icons.pencil }}</v-icon>
             {{ showIssueForm ? 'close form' : 'fill out form' }}
           </v-btn>
           <v-btn
@@ -64,7 +64,7 @@
             href="https://github.com/eurodatacube/eodash/issues"
             target="_blank"
           >
-            <v-icon left>mdi-github</v-icon>
+            <v-icon left>{{ icons.github }}</v-icon>
             eodash on Github
           </v-btn>
         </v-card>
@@ -78,7 +78,7 @@
           outlined
         >
           <v-card-title>
-            <v-icon left color="primary">mdi-head-question-outline</v-icon>
+            <v-icon left color="primary">{{ icons.headQuestionOutline }}</v-icon>
             Something else
           </v-card-title>
           <v-responsive :aspect-ratio="4/1">
@@ -97,7 +97,7 @@
             :href="`https://twitter.com/${handle}`"
             target="_blank"
           >
-            <v-icon left>mdi-twitter</v-icon>
+            <v-icon left>{{ icons.twitter }}</v-icon>
             {{ handle }}
           </v-btn>
         </v-card>
@@ -284,6 +284,15 @@ import {
 
 import axios from 'axios';
 
+import {
+  mdiChartLine,
+  mdiPencil,
+  mdiBug,
+  mdiHeadQuestionOutline,
+  mdiGithub,
+  mdiTwitter,
+} from '@mdi/js';
+
 export default {
   data: () => ({
     issueUrl: 'https://issues-eodash.f77a4d8a-acde-4ddd-b1cd-b2b6afe83d7a.hub.eox.at/issues',
@@ -305,6 +314,14 @@ export default {
     comments: null,
     showPreview: false,
     markdownMessage: 'You can use <a href="https://guides.github.com/features/mastering-markdown/" rel="noopener" target="_blank" tabindex="-1">markdown</a>',
+    icons: {
+      chartLine: mdiChartLine,
+      pencil: mdiPencil,
+      bug: mdiBug,
+      headQuestionOutline: mdiHeadQuestionOutline,
+      github: mdiGithub,
+      twitter: mdiTwitter,
+    },
   }),
   computed: {
     ...mapState('config', ['appConfig']),
