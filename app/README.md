@@ -33,7 +33,7 @@ Unfortunately, it's not possible to directly reference the imported icons, so it
 Finally, the icons (SVG paths) in the object can be used in the `v-icon` component:
 
 ```html
-<v-icon>icons.close</v-icon>
+<v-icon>{{ icons.close }}</v-icon>
 ```
 ### Openlayers Map Wrapper
 https://vuelayers.github.io/
