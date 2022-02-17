@@ -103,7 +103,7 @@
                         target="_blank"
                         v-if="customAreaIndicator && !isFullScreen"
                       >
-                        <v-icon left>mdi-download</v-icon>
+                        <v-icon left>{{ icons.download }}</v-icon>
                         download csv
                       </v-btn>
                     </div>
@@ -123,7 +123,7 @@
                   <v-btn
                     icon
                     @click="clearSelection">
-                    <v-icon medium>mdi-close</v-icon>
+                    <v-icon medium>{{ icons.close }}</v-icon>
                   </v-btn>
                   {{ customAreaIndicator.title }}
               </v-card-title>
@@ -165,7 +165,7 @@
               <v-btn
                 icon
                 @click="clearSelection">
-                <v-icon medium>mdi-close</v-icon>
+                <v-icon medium>{{ icons.close }}</v-icon>
               </v-btn>
               {{ customAreaIndicator.title }}
           </v-card-title>
@@ -225,7 +225,7 @@
                       ].countrySelection
                     "
                   >
-                    <v-icon left>mdi-download</v-icon>
+                    <v-icon left>{{ icons.download }}</v-icon>
                     download csv
                   </v-btn>
                 </div>
@@ -314,7 +314,7 @@
                       indicatorObject.indicator
                     ].disableCSV"
                 >
-                  <v-icon left>mdi-download</v-icon>
+                  <v-icon left>{{ icons.download }}</v-icon>
                   download csv
                 </v-btn>
                 <iframe-button
@@ -337,7 +337,7 @@
                     ].countrySelection
                   "
                 >
-                  <v-icon left>mdi-download</v-icon>
+                  <v-icon left>{{ icons.download }}</v-icon>
                   download csv
                 </v-btn>
                 <AddToDashboardButton
@@ -446,7 +446,7 @@
                         ].countrySelection
                       "
                     >
-                      <v-icon left>mdi-download</v-icon>
+                      <v-icon left>{{ icons.download }}</v-icon>
                       download csv
                     </v-btn>
                   </div>
@@ -478,7 +478,7 @@
                 large
                 block
                 class="my-1"
-              ><span><v-icon left>mdi-satellite-variant</v-icon>EO Data</span>
+              ><span><v-icon left>{{ icons.satelliteVariant }}</v-icon>EO Data</span>
               </v-btn>
               <v-btn
                 v-if="indicatorObject && externalData"
@@ -489,7 +489,7 @@
                 large
                 block
                 class="my-1"
-              ><span><v-icon left>mdi-open-in-new</v-icon>{{externalData.label}}</span>
+              ><span><v-icon left>{{ icons.openInNew }}</v-icon>{{externalData.label}}</span>
               </v-btn>
               <v-dialog
                 v-model="dialog"
@@ -538,6 +538,13 @@ import FullScreenButton from '@/components/FullScreenButton.vue';
 import IframeButton from '@/components/IframeButton.vue';
 import AddToDashboardButton from '@/components/AddToDashboardButton.vue';
 
+import {
+  mdiDownload,
+  mdiClose,
+  mdiSatelliteVariant,
+  mdiOpenInNew,
+} from '@mdi/js';
+
 export default {
   mixins: [dialogMixin],
   props: [
@@ -561,6 +568,12 @@ export default {
     multipleTabCompare: null,
     zoom: null,
     center: null,
+    icons: {
+      download: mdiDownload,
+      close: mdiClose,
+      satelliteVariant: mdiSatelliteVariant,
+      openInNew: mdiOpenInNew,
+    },
   }),
   computed: {
     ...mapGetters('features', [
