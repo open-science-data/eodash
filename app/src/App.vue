@@ -42,7 +42,7 @@
               :class="$vuetify.breakpoint.smAndUp ? 'mr-5' : 'mb-5'"
               @click="props.accept"
             >
-              <v-icon left>mdi-checkbox-marked-circle-outline</v-icon>
+              <v-icon left>{{ icons.checkboxMarkedCircleOutline }}</v-icon>
               Accept all cookies
             </v-btn>
             <v-btn
@@ -51,7 +51,7 @@
               :block="$vuetify.breakpoint.xsOnly"
               @click="props.close"
             >
-              <v-icon left>mdi-cancel</v-icon>
+              <v-icon left>{{ icons.cancel }}</v-icon>
               Accept essential only
             </v-btn>
           </div>
@@ -74,6 +74,11 @@ import { loadIndicatorData } from '@/utils';
 import axios from 'axios';
 import { Wkt } from 'wicket';
 
+import {
+  mdiCheckboxMarkedCircleOutline,
+  mdiCancel,
+} from '@mdi/js';
+
 import Alert from './components/Alert.vue';
 
 const wkt = new Wkt();
@@ -87,6 +92,10 @@ export default {
     showPrivacyDialog: false,
     comingSoon: null,
     countDownTime: null,
+    icons: {
+      checkboxMarkedCircleOutline: mdiCheckboxMarkedCircleOutline,
+      cancel: mdiCancel,
+    },
   }),
   computed: {
     ...mapState('config', [
