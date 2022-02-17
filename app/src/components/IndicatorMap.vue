@@ -31,7 +31,7 @@
                   : 'width: 26px; height: 26px;'} border-radius: 4px`"
                 @click="clearCustomAreaFilter"
               >
-                <v-icon small>mdi-delete</v-icon>
+                <v-icon small>{{ icons.delete }}</v-icon>
               </v-btn>
             </div>
           </template>
@@ -58,7 +58,7 @@
                   color: ${appConfig.branding.primaryColor};`"
                 @click="fetchCustomAreaIndicator"
               >
-                <v-icon small>mdi-poll</v-icon>
+                <v-icon small>{{ icons.poll }}</v-icon>
               </v-btn>
             </div>
           </template>
@@ -378,13 +378,13 @@
               :prepend-inner-icon="(arrayOfObjects && compareLayerTime) && (arrayOfObjects
                 .map((i) => i.value)
                 .indexOf(compareLayerTime.value) > 0
-                  ? 'mdi-arrow-left-drop-circle'
-                  : 'mdi-asterisk')"
+                  ? icons.arrowLeftDropCircle
+                  : icons.asterisk)"
               :append-icon="(arrayOfObjects && compareLayerTime) && (arrayOfObjects
                 .map((i) => i.value)
                 .indexOf(compareLayerTime.value) < arrayOfObjects.length - 1
-                  ? 'mdi-arrow-right-drop-circle'
-                  : 'mdi-asterisk')"
+                  ? icons.arrowRightDropCircle
+                  : icons.asterisk)"
               menu-props="auto"
               :items="arrayOfObjects"
               item-value="value"
@@ -407,13 +407,13 @@
               :prepend-inner-icon="(arrayOfObjects && dataLayerTime) && (arrayOfObjects
                 .map((i) => i.value)
                 .indexOf(dataLayerTime.value) > 0
-                  ? 'mdi-arrow-left-drop-circle'
-                  : 'mdi-asterisk')"
+                  ? icons.arrowLeftDropCircle
+                  : icons.asterisk)"
               :append-icon="(arrayOfObjects && dataLayerTime) && (arrayOfObjects
                 .map((i) => i.value)
                 .indexOf(dataLayerTime.value) < arrayOfObjects.length - 1
-                  ? 'mdi-arrow-right-drop-circle'
-                  : 'mdi-asterisk')"
+                  ? icons.arrowRightDropCircle
+                  : icons.asterisk)"
               menu-props="auto"
               :items="arrayOfObjects"
               item-value="value"
@@ -429,7 +429,12 @@
                   bottom
                 >
                   <template v-slot:activator="{ on }">
-                    <v-icon v-on="on" @click="enableCompare = !enableCompare">mdi-compare</v-icon>
+                    <v-icon
+                      v-on="on"
+                      @click="enableCompare = !enableCompare"
+                    >
+                      {{ icons.compare }}
+                    </v-icon>
                   </template>
                   Compare two images
                 </v-tooltip>
@@ -473,6 +478,15 @@ import Vue2LeafletMarkerCluster from 'vue2-leaflet-markercluster';
 import 'leaflet.markercluster/dist/MarkerCluster.css'; // eslint-disable-line import/no-extraneous-dependencies
 import 'leaflet.markercluster/dist/MarkerCluster.Default.css'; // eslint-disable-line import/no-extraneous-dependencies
 import turfDifference from '@turf/difference';
+
+import {
+  mdiAsterisk,
+  mdiArrowLeftDropCircle,
+  mdiArrowRightDropCircle,
+  mdiPoll,
+  mdiDelete,
+  mdiCompare,
+} from '@mdi/js';
 
 import countries from '@/assets/countries.json';
 import gsaFile from '@/assets/gsa_data.json';
@@ -550,6 +564,15 @@ export default {
       ro: null,
       dataJson: { features: null },
       compareJson: { features: null },
+
+      icons: {
+        asterisk: mdiAsterisk,
+        arrowLeftDropCircle: mdiArrowLeftDropCircle,
+        arrowRightDropCircle: mdiArrowRightDropCircle,
+        poll: mdiPoll,
+        delete: mdiDelete,
+        compare: mdiCompare,
+      },
     };
   },
   computed: {
