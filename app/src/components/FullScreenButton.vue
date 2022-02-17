@@ -13,8 +13,8 @@
         <v-icon
           :class="touch && 'fs-icon-touch'"
         >{{ fullscreen
-          ? 'mdi-fullscreen-exit'
-          : 'mdi-fullscreen' }}</v-icon>
+          ? icons.fullscreenExit
+          : icons.fullscreen }}</v-icon>
       </v-btn>
     </template>
     <span v-if="!isFullScreen">Full screen</span>
@@ -28,11 +28,20 @@ import { mapState } from 'vuex';
 
 Vue.use(fullscreen);
 
+import {
+  mdiFullscreen,
+  mdiFullscreenExit,
+} from '@mdi/js';
+
 export default {
   data: () => ({
     fullscreen: false,
     fullScreenElement: null,
     touch: false,
+    icons: {
+      fullscreen: mdiFullscreen,
+      fullscreenExit: mdiFullscreenExit,
+    },
   }),
   computed: {
     ...mapState(['isFullScreen']),
