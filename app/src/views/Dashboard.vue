@@ -158,10 +158,10 @@
       <banner v-if="currentNews" ref="newsBanner" />
       <v-toolbar v-if="$store.state.indicators.selectedIndicator" flat>
         <v-btn v-if="dataPanelFullWidth" icon @click="setDataPanelWidth(false)">
-          <v-icon>icons.close</v-icon>
+          <v-icon>{{ icons.close }}</v-icon>
         </v-btn>
         <v-btn v-else icon @click="setDataPanelWidth(true)">
-          <v-icon>icons.arrowExpand</v-icon>
+          <v-icon>{{ icons.arrowExpand }}</v-icon>
         </v-btn>
         <v-toolbar-title v-if="$store.state.indicators.selectedIndicator"
           :class="$store.state.indicators.selectedIndicator.description ===
@@ -216,11 +216,11 @@
           @click="clickMobileClose"
           color="secondary"
         >
-          <v-icon left>icons.arrowRight</v-icon>
+          <v-icon left>{{ icons.arrowRight }}</v-icon>
           Start exploring!
         </v-btn>
         <v-btn v-else icon dark @click="clickMobileClose">
-          <v-icon>icons.close</v-icon>
+          <v-icon>{{ icons.close }}</v-icon>
         </v-btn>
       </v-toolbar>
       <div
