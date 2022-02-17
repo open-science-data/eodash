@@ -492,12 +492,12 @@ export const layerNameMapping = Object.freeze({
 });
 
 export const indicatorClassesIcons = Object.freeze({
-  economic: 'mdi-cash',
-  agriculture: 'mdi-barley',
-  air: 'mdi-weather-windy',
-  water: 'mdi-water',
-  land: 'mdi-image-filter-hdr',
-  health: 'mdi-hospital-box-outline',
+  economic: 'mdiCash',
+  agriculture: 'mdiBarley',
+  air: 'mdiWeatherWindy',
+  water: 'mdiWater',
+  land: 'mdiImageFilterHdr',
+  health: 'mdiHospitalBoxOutline',
 });
 
 export const mapDefaults = Object.freeze({
