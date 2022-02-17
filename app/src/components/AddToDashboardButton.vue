@@ -11,7 +11,7 @@
         small
         v-on="on"
       >
-        <v-icon left>mdi-view-dashboard</v-icon>
+        <v-icon left>{{ icons.viewDashboard }}</v-icon>
         add to custom dashboard
       </v-btn>
     </template>
@@ -58,7 +58,7 @@
     v-else
     @click="toggle"
   >
-    <v-icon left>mdi-check-bold</v-icon>
+    <v-icon left>{{ icons.checkBold }}</v-icon>
     added to custom dashboard
   </v-btn>
 </template>
@@ -68,6 +68,11 @@ import {
   mapActions,
   mapState,
 } from 'vuex';
+
+import {
+  mdiCheckBold,
+  mdiViewDashboard,
+} from '@mdi/js';
 
 export default {
   props: {
@@ -79,6 +84,10 @@ export default {
     alreadyAdded: false,
     dialog: false,
     title: '',
+    icons: {
+      checkBold: mdiCheckBold,
+      viewDashboard: mdiViewDashboard,
+    },
   }),
   computed: {
     ...mapState('dashboard', ['dashboardConfig']),
