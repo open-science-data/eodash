@@ -13,7 +13,7 @@
       </v-col>
       <v-col class="shrink">
         <v-btn icon @click="clearAlert">
-          <v-icon>mdi-close</v-icon>
+          <v-icon>{{ icons.close }}</v-icon>
         </v-btn>
       </v-col>
     </v-row>
@@ -21,7 +21,16 @@
 </template>
 
 <script>
+import { mdiClose } from '@mdi/js';
+
 export default {
+  data() {
+    return {
+      icons: {
+        close: mdiClose,
+      },
+    };
+  },
   computed: {
     showAlert() {
       return this.$store.state.alert.message !== '';
