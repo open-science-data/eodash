@@ -21,7 +21,7 @@
           <v-toolbar-title
             class="text-uppercase mr-5 d-flex align-center"
           >
-            <v-icon dark left>mdi-arrow-left</v-icon>
+            <v-icon dark left>{{ icons.arrowLeft }}</v-icon>
             <span v-if="$vuetify.breakpoint.mdAndUp">
               {{ appConfig && appConfig.branding.appName }}
             </span>
@@ -47,7 +47,7 @@
                       @click="newDashboardTitle = dashboardTitle; titleDialog = true"
                     >
                       <v-icon
-                      >mdi-pencil</v-icon>
+                      >{{ icons.pencil }}</v-icon>
                     </v-btn>
                   </template>
                   <span>Edit dashboard title</span>
@@ -135,7 +135,7 @@
               :block="$vuetify.breakpoint.xsOnly"
               @click="viewLinksFn"
             >
-              <v-icon left>mdi-share</v-icon>
+              <v-icon left>{{ icons.share }}</v-icon>
               share
             </v-btn>
             <v-btn
@@ -147,11 +147,11 @@
               style="color: white"
             >
               <template v-if="!(dashboardConfig && dashboardConfig.id)">
-                <v-icon left color="white">mdi-delete</v-icon>
+                <v-icon left color="white">{{ icons.delete }}</v-icon>
                 discard dashboard
               </template>
               <template v-else>
-                <v-icon left color="white">mdi-exit-to-app</v-icon>
+                <v-icon left color="white">{{ icons.exitToApp }}</v-icon>
                 exit edit mode
               </template>
             </v-btn>
@@ -172,7 +172,7 @@
                   :block="$vuetify.breakpoint.xsOnly"
                   @click="saveCurrentDashboardState"
                 >
-                  <v-icon left> mdi-content-save </v-icon>
+                  <v-icon left>{{ icons.contentSave }}</v-icon>
                     Save Dashboard
                 </v-btn>
               </template>
@@ -286,7 +286,7 @@
                             @click:append="copyViewingLink"
                             readonly
                             outlined
-                            append-icon="mdi-content-copy"
+                            :append-icon="icons.contentCopy"
                             persistent-hint
                             :hint="$store.state.dashboard.dashboardConfig
                               && $store.state.dashboard.dashboardConfig.editKey
@@ -307,7 +307,7 @@
                             @click:append="copyEditingLink"
                             readonly
                             outlined
-                            append-icon="mdi-content-copy"
+                            :append-icon="icons.contentCopy"
                             persistent-hint
                             hint="Use this link to make changes to your dashboard"
                             :value="editingLink"
@@ -344,7 +344,7 @@
                 <v-icon
                   small
                   left
-                >{{ displaySavingChanges ? 'mdi-cached' : 'mdi-cloud-check-outline' }}</v-icon>
+                >{{ displaySavingChanges ? icons.cached : icons.cloudCheckOutline }}</v-icon>
                 <small>
                   {{ displaySavingChanges ? 'saving changes...' : 'changes saved to cloud' }}
                 </small>
@@ -378,7 +378,7 @@
                   :class="$vuetify.breakpoint.xsOnly ? 'mb-4' : 'mr-4'"
                   :block="$vuetify.breakpoint.xsOnly"
                 >
-                  <v-icon left> mdi-text-box-plus </v-icon>
+                  <v-icon left> {{ icons.textBoxPlus }} </v-icon>
                   <span>Add text block</span>
               </v-btn>
             </v-col>
@@ -473,6 +473,19 @@ import {
 import GlobalFooter from '@/components/GlobalFooter.vue';
 import CustomDashboardGrid from '@/components/CustomDashboardGrid.vue';
 
+import {
+  mdiArrowLeft,
+  mdiPencil,
+  mdiShare,
+  mdiDelete,
+  mdiExitToApp,
+  mdiContentSave,
+  mdiContentCopy,
+  mdiCached,
+  mdiCloudCheckOutline,
+  mdiTextBoxPlus,
+} from '@mdi/js';
+
 export default {
   components: {
     CustomDashboardGrid,
@@ -542,6 +555,19 @@ export default {
     ],
     reconnecting: false,
     markdownMessage: 'You can use <a href="https://guides.github.com/features/mastering-markdown/" rel="noopener" target="_blank" tabindex="-1">markdown</a>',
+  
+    icons: {
+      arrowLeft: mdiArrowLeft,
+      pencil: mdiPencil,
+      share: mdiShare,
+      delete: mdiDelete,
+      exitToApp: mdiExitToApp,
+      contentSave: mdiContentSave,
+      contentCopy: mdiContentCopy,
+      cached: mdiCached,
+      cloudCheckOutline, mdiCloudCheckOutline,
+      textBoxPlus: mdiTextBoxPlus,
+    },
   }),
   computed: {
     ...mapState('config', [
