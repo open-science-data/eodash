@@ -555,7 +555,7 @@ export default {
     ],
     reconnecting: false,
     markdownMessage: 'You can use <a href="https://guides.github.com/features/mastering-markdown/" rel="noopener" target="_blank" tabindex="-1">markdown</a>',
-  
+
     icons: {
       arrowLeft: mdiArrowLeft,
       pencil: mdiPencil,
@@ -565,7 +565,7 @@ export default {
       contentSave: mdiContentSave,
       contentCopy: mdiContentCopy,
       cached: mdiCached,
-      cloudCheckOutline, mdiCloudCheckOutline,
+      cloudCheckOutline: mdiCloudCheckOutline,
       textBoxPlus: mdiTextBoxPlus,
     },
   }),
