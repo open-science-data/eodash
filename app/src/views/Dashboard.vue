@@ -281,7 +281,7 @@ import closeMixin from '@/mixins/close';
 import dialogMixin from '@/mixins/dialogMixin';
 import { mapState } from 'vuex';
 
-import { 
+import {
   mdiClose,
   mdiArrowRight,
   mdiArrowExpand,
