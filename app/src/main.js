@@ -74,6 +74,9 @@ Vue.use(Vuetify, {
   directives: {
     Touch,
   },
+  icons: {
+    iconFont: 'mdiSvg',
+  },
 });
 
 Vue.use(browserDetect);
