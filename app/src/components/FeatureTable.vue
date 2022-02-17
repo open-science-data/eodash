@@ -32,14 +32,14 @@
             <div v-if="Array.isArray(item.country)" class="table-flag d-flex justify-center" >
               <span v-for="(country, i) in item.country" :key="i" class="table-flag">
                 <v-icon v-if="country === 'all' || country === 'indicatorall'" class="ml-1">
-                  mdi-earth
+                  {{ icons.earth }}
                 </v-icon>
                 <country-flag v-else :country="country" size="normal"></country-flag>
               </span>
             </div>
             <div v-else class="d-flex justify-center">
               <v-icon v-if="item.country === 'all' || item.country === 'indicatorall'" class="ml-1">
-                mdi-earth
+                {{ icons.earth }}
               </v-icon>
               <country-flag v-else :country="item.country" size="normal"></country-flag>
             </div>
@@ -59,6 +59,9 @@ import {
 
 import CountryFlag from 'vue-country-flag';
 
+import {
+  mdiEarth,
+} from '@mdi/js';
 
 export default {
   components: {
@@ -96,6 +99,13 @@ export default {
         indicatorObject: f.properties.indicatorObject,
       }));
     },
+  },
+  data() {
+    return {
+      icons: {
+        earth: mdiEarth,
+      },
+    };
   },
   methods: {
     flatten(array) {
