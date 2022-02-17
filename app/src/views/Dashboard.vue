@@ -85,8 +85,8 @@
             >
               {{
                 $vuetify.theme.dark
-                  ? 'mdi-white-balance-sunny'
-                  : 'mdi-weather-night'
+                  ? icons.whiteBalanceSunny
+                  : icons.weatherNight
               }}
             </v-icon>
           </v-list-item-action>
@@ -158,10 +158,10 @@
       <banner v-if="currentNews" ref="newsBanner" />
       <v-toolbar v-if="$store.state.indicators.selectedIndicator" flat>
         <v-btn v-if="dataPanelFullWidth" icon @click="setDataPanelWidth(false)">
-          <v-icon>mdi-close</v-icon>
+          <v-icon>icons.close</v-icon>
         </v-btn>
         <v-btn v-else icon @click="setDataPanelWidth(true)">
-          <v-icon>mdi-arrow-expand</v-icon>
+          <v-icon>icons.arrowExpand</v-icon>
         </v-btn>
         <v-toolbar-title v-if="$store.state.indicators.selectedIndicator"
           :class="$store.state.indicators.selectedIndicator.description ===
@@ -216,11 +216,11 @@
           @click="clickMobileClose"
           color="secondary"
         >
-          <v-icon left>mdi-arrow-right</v-icon>
+          <v-icon left>icons.arrowRight</v-icon>
           Start exploring!
         </v-btn>
         <v-btn v-else icon dark @click="clickMobileClose">
-          <v-icon>mdi-close</v-icon>
+          <v-icon>icons.close</v-icon>
         </v-btn>
       </v-toolbar>
       <div
@@ -281,6 +281,14 @@ import closeMixin from '@/mixins/close';
 import dialogMixin from '@/mixins/dialogMixin';
 import { mapState } from 'vuex';
 
+import { 
+  mdiClose,
+  mdiArrowRight,
+  mdiArrowExpand,
+  mdiWeatherNight,
+  mdiWhiteBalanceSunny,
+} from '@mdi/js';
+
 export default {
   metaInfo() {
     const { appConfig } = this.$store.state.config;
@@ -312,6 +320,13 @@ export default {
     dataPanelFullWidth: false,
     dataPanelTemporary: false,
     panelKey: 0,
+    icons: {
+      close: mdiClose,
+      arrowRight: mdiArrowRight,
+      arrowExpand: mdiArrowExpand,
+      weatherNight: mdiWeatherNight,
+      whiteBalanceSunny: mdiWhiteBalanceSunny,
+    },
   }),
   computed: {
     appConfig() {
