@@ -26,12 +26,12 @@ import fullscreen from 'vue-fullscreen';
 import Vue from 'vue';
 import { mapState } from 'vuex';
 
-Vue.use(fullscreen);
-
 import {
   mdiFullscreen,
   mdiFullscreenExit,
 } from '@mdi/js';
+
+Vue.use(fullscreen);
 
 export default {
   data: () => ({

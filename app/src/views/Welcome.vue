@@ -141,8 +141,8 @@ export default {
     getIcon(category) {
       this.icons[
         this.baseConfig.indicatorClassesIcons[category]
-      ]
-    }
+      ];
+    },
   },
 
   mounted() {
@@ -150,10 +150,10 @@ export default {
       .map((category) => this.loadIcon(
         this.baseConfig.indicatorClassesIcons[category],
       ));
-    
-    console.log(this.baseConfig.indicatorClassesIcons['agriculture']);
-    console.log(this.icons)
-    console.log('this.icons.mdiBarley == ' + this.icons.mdiBarley)
+
+    console.log(this.baseConfig.indicatorClassesIcons.agriculture);
+    console.log(this.icons);
+    console.log(`this.icons.mdiBarley == ${this.icons.mdiBarley}`);
   },
 };
 </script>
