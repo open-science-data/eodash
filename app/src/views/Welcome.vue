@@ -28,7 +28,13 @@
               <v-icon
                 x-large
                 color="primary"
-              >{{ baseConfig.indicatorClassesIcons[category] }}</v-icon>
+              >{{
+                icons[
+                  baseConfig.indicatorClassesIcons[
+                    category
+                  ]
+                ]
+              }}</v-icon>
               {{ featureLength(category) }}
               </h2>
             <p class="mb-0"><small class="text-capitalize">{{category}}<br />Indicators</small></p>
@@ -99,6 +105,7 @@ export default {
   },
   data: () => ({
     panel: 0,
+    icons: {},
   }),
   computed: {
     ...mapGetters('features', [
@@ -128,6 +135,19 @@ export default {
           .indicatorsDefinition[i.properties.indicatorObject.indicator]
           .class === type).length;
     },
+
+    loadIcon(icon) {
+      import('@mdi/js').then((module) => {
+        this.icons[icon] = module[icon];
+      });
+    },
+  },
+
+  created() {
+    Object.keys(this.baseConfig.indicatorClassesIcons)
+      .map((category) => this.loadIcon(
+        this.baseConfig.indicatorClassesIcons[category],
+      ));
   },
 };
 </script>
