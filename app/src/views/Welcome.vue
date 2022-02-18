@@ -29,11 +29,7 @@
                 x-large
                 color="primary"
               >{{
-                icons[
-                  baseConfig.indicatorClassesIcons[
-                    category
-                  ]
-                ]
+                getIcon(category)
               }}</v-icon>
               {{ featureLength(category) }}
               </h2>
@@ -141,13 +137,23 @@ export default {
         this.icons[icon] = module[icon];
       });
     },
+
+    getIcon(category) {
+      this.icons[
+        this.baseConfig.indicatorClassesIcons[category]
+      ]
+    }
   },
 
-  created() {
+  mounted() {
     Object.keys(this.baseConfig.indicatorClassesIcons)
       .map((category) => this.loadIcon(
         this.baseConfig.indicatorClassesIcons[category],
       ));
+    
+    console.log(this.baseConfig.indicatorClassesIcons['agriculture']);
+    console.log(this.icons)
+    console.log('this.icons.mdiBarley == ' + this.icons.mdiBarley)
   },
 };
 </script>
