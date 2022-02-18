@@ -139,7 +139,7 @@ export default {
     },
 
     getIcon(category) {
-      this.icons[
+      return this.icons[
         this.baseConfig.indicatorClassesIcons[category]
       ];
     },
