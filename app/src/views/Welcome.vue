@@ -132,9 +132,15 @@ export default {
           .class === type).length;
     },
 
-    loadIcon(icon) {
+    loadIcons(iconNames) {
+      var self = this;
+
       import('@mdi/js').then((module) => {
-        this.icons[icon] = module[icon];
+        // Extract SVG paths from the @mdi/js package
+        iconNames.map((icon) => { self.icons[icon] = module[icon] });
+
+        // Force component re-render as soon as our promise is done.
+        self.$forceUpdate();
       });
     },
 
@@ -146,14 +152,9 @@ export default {
   },
 
   mounted() {
-    Object.keys(this.baseConfig.indicatorClassesIcons)
-      .map((category) => this.loadIcon(
-        this.baseConfig.indicatorClassesIcons[category],
-      ));
-
-    console.log(this.baseConfig.indicatorClassesIcons.agriculture);
-    console.log(this.icons);
-    console.log(`this.icons.mdiBarley == ${this.icons.mdiBarley}`);
+    this.loadIcons(
+      Object.values(this.baseConfig.indicatorClassesIcons),
+    );
   },
 };
 </script>
