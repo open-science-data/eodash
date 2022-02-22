@@ -91,7 +91,7 @@
           >
               <v-icon
                 color="white"
-                class="pa-1"
+                class=""
                 icon-url="/test"
                 :small="currentSelected !== getLocationCode(feature.properties.indicatorObject)"
               >
