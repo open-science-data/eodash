@@ -133,11 +133,11 @@ export default {
     },
 
     loadIcons(iconNames) {
-      var self = this;
+      const self = this;
 
       import('@mdi/js').then((module) => {
         // Extract SVG paths from the @mdi/js package
-        iconNames.map((icon) => { self.icons[icon] = module[icon] });
+        iconNames.forEach((icon) => { self.icons[icon] = module[icon]; });
 
         // Force component re-render as soon as our promise is done.
         self.$forceUpdate();
