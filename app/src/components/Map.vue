@@ -95,11 +95,9 @@
                 icon-url="/test"
                 :small="currentSelected !== getLocationCode(feature.properties.indicatorObject)"
               >
-                {{ baseConfig.indicatorClassesIcons[baseConfig
-                    .indicatorsDefinition[feature.properties.indicatorObject.indicator].class]
-                    ? baseConfig.indicatorClassesIcons[baseConfig
-                      .indicatorsDefinition[feature.properties.indicatorObject.indicator].class]
-                    : 'mdi-lightbulb-on-outline'}}
+                {{ getIconFromIndicator(feature.properties.indicatorObject.indicator)
+                    ? getIconFromIndicator(feature.properties.indicatorObject.indicator)
+                    : icons.lightbulbOnOutline }}
               </v-icon>
           </div>
         </l-icon>
@@ -182,6 +180,7 @@ export default {
       opacityTerrain: [1],
       opacityOverlay: [0, 0, 0, 0, 0, 0, 0.4, 0.4, 0.8, 0.8, 0.9, 0.9, 0.9, 0.9, 0.9, 0.9, 0.9],
       opacityCountries: [1, 1, 1, 1, 0.7, 0.7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      icons: {},
     };
   },
   computed: {
@@ -353,6 +352,10 @@ export default {
         }
       }
     });
+
+    this.loadIcons(
+      Object.values(this.baseConfig.indicatorClassesIcons),
+    );
   },
   methods: {
     selectIndicator(feature) {
@@ -481,6 +484,26 @@ export default {
           : time;
       }
       return additionalSettings;
+    },
+    loadIcons(iconNames) {
+      const self = this;
+
+      import('@mdi/js').then((module) => {
+        // Extract SVG paths from the @mdi/js package
+        iconNames.forEach((icon) => { self.icons[icon] = module[icon]; });
+
+        // Force component re-render as soon as our promise is done.
+        self.$forceUpdate();
+      });
+    },
+    getIconFromIndicator(indicator) {
+      const icon = this.baseConfig.indicatorClassesIcons[
+        this.baseConfig.indicatorsDefinition[
+          indicator
+        ].class
+      ];
+
+      return this.icons[icon];
     },
   },
 };
