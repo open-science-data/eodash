@@ -60,13 +60,9 @@
                         icon-url="/test"
                         small
                       >
-                        {{ baseConfig.indicatorClassesIcons[baseConfig
-                            .indicatorsDefinition[feature.properties.indicatorObject.indicator]
-                            .class]
-                            ? baseConfig.indicatorClassesIcons[baseConfig
-                              .indicatorsDefinition[feature.properties
-                                .indicatorObject.indicator].class]
-                            : icons.lightbulbOnOutline}}
+                        {{ getIconFromIndicator(feature.properties.indicatorObject.indicator)
+                              ? getIconFromIndicator(feature.properties.indicatorObject.indicator)
+                              : icons.lightbulbOnOutline }}
                       </v-icon>
                   </div>
                 </v-list-item-icon>
@@ -262,6 +258,35 @@ export default {
         && this.$store.state.indicators.selectedIndicator.aoiID
           === feature.properties.indicatorObject.aoiID;
     },
+    loadIcons(iconNames) {
+      const self = this;
+
+      import('@mdi/js').then((module) => {
+        // Extract SVG paths from the @mdi/js package
+        iconNames.forEach((icon) => { self.icons[icon] = module[icon]; });
+
+        // Force component re-render as soon as our promise is done.
+        self.$forceUpdate();
+      });
+    },
+
+    getIcon(category) {
+      console.log(`getting icon for ${category}`);
+
+      return this.icons[
+        this.baseConfig.indicatorClassesIcons[category]
+      ];
+    },
+
+    getIconFromIndicator(indicator) {
+      const icon = this.baseConfig.indicatorClassesIcons[
+        this.baseConfig.indicatorsDefinition[
+          indicator
+        ].class
+      ];
+
+      return this.icons[icon];
+    },
   },
   watch: {
     someGlobalIndicator() {
@@ -270,6 +295,11 @@ export default {
         this.openGlobalPanel = this.someGlobalIndicator.length > 0;
       }, 1);
     },
+  },
+  mounted() {
+    this.loadIcons(
+      Object.values(this.baseConfig.indicatorClassesIcons),
+    );
   },
 };
 </script>
