@@ -130,8 +130,8 @@
               >
                 <v-list-item-icon class="ml-3 mr-4">
                   <v-icon>{{
-                    baseConfig.indicatorClassesIcons[classId]
-                      ? baseConfig.indicatorClassesIcons[classId]
+                    icons[baseConfig.indicatorClassesIcons[classId]]
+                      ? icons[baseConfig.indicatorClassesIcons[classId]]
                       : "mdi-lightbulb-on-outline"
                   }}</v-icon>
                 </v-list-item-icon>
@@ -200,6 +200,7 @@ export default {
     countrySelection: 'all',
     indicatorSelection: 'all',
     indicatorPanel: 0,
+    icons: {},
   }),
   computed: {
     ...mapGetters('features', [
@@ -323,6 +324,10 @@ export default {
         }
       }
     });
+
+    this.loadIcons(
+      Object.values(this.baseConfig.indicatorClassesIcons),
+    );
   },
   methods: {
     selectCountry(selection) {
@@ -346,6 +351,17 @@ export default {
         .filter(
           (thing, index, self) => self.findIndex((t) => t === thing) === index,
         );
+    },
+    loadIcons(iconNames) {
+      const self = this;
+
+      import('@mdi/js').then((module) => {
+        // Extract SVG paths from the @mdi/js package
+        iconNames.forEach((icon) => { self.icons[icon] = module[icon]; });
+
+        // Force component re-render as soon as our promise is done.
+        self.$forceUpdate();
+      });
     },
   },
   watch: {
