@@ -1543,7 +1543,7 @@ export const globalIndicators = [
         },
         lastColorCode: null,
         aoi: null,
-        time: availableDates.VIS_SO2_DAILY_DATA,
+        time: availableDates.VIS_SO2_SENTINELHUB,
         inputData: [],
         yAxis: 'SO2',
         display: {
@@ -1557,7 +1557,7 @@ export const globalIndicators = [
           customAreaIndicator: true,
           areaIndicator: {
             ...shFisAreaIndicatorStdConfig,
-            url: `https://creodias.sentinel-hub.com/ogc/fis/${shConfig.shInstanceId}?LAYER=AWS_RAW_SO2_DAILY_DATA&CRS=CRS:84&TIME=2000-01-01/2050-01-01&RESOLUTION=2500m&GEOMETRY={area}`,
+            url: `https://creodias.sentinel-hub.com/ogc/fis/${shConfig.shInstanceId}?LAYER=RAW_SO2_SENTINELHUB&CRS=CRS:84&TIME=2000-01-01/2050-01-01&RESOLUTION=2500m&GEOMETRY={area}`,
           },
         },
       },
@@ -2435,7 +2435,7 @@ export const globalIndicators = [
           customAreaIndicator: true,
           areaIndicator: {
             ...shFisAreaIndicatorStdConfig,
-            url: `https://creodias.sentinel-hub.com/ogc/fis/${shConfig.shInstanceId}?LAYER=AWS_RAW_SO2_DAILY_DATA&CRS=CRS:84&TIME=2000-01-01/2050-01-01&RESOLUTION=2500m&GEOMETRY={area}`,
+            url: `https://creodias.sentinel-hub.com/ogc/fis/${shConfig.shInstanceId}?LAYER=RAW_CO_SENTINELHUB&CRS=CRS:84&TIME=2000-01-01/2050-01-01&RESOLUTION=2500m&GEOMETRY={area}`,
           },
         },
       },

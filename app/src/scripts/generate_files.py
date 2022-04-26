@@ -25,10 +25,8 @@ envs = dot_env.dict()
 
 # Function to fetch all available dates for BYOD collections.
 # Make sure all appropiate collection ids are set in your docker environment
-COLLECTIONS = [
-]
 
-MIGRATED_COLLECTIONS = [
+COLLECTIONS = [
     "N3_CUSTOM",
     "N3_CUSTOM_TSMNN",
     "E12C_NEW_MOTORWAY",
@@ -49,6 +47,13 @@ MIGRATED_COLLECTIONS = [
     "VIS_WIND_V_10M",
     "VIS_SO2_DAILY_DATA",
 ]
+WFS_ENDPOINT = "https://services.sentinel-hub.com/ogc/wfs/"
+
+OPEN_COLLECTIONS = [
+    ("VIS_SO2_SENTINELHUB", "DSS7"),
+    ("VIS_CO_SENTINELHUB", "DSS7"),
+]
+WFS_OPEN_COLLECTIONS = "https://creodias.sentinel-hub.com/ogc/wfs/"
 
 ZARRCOLLECTIONS = [
 
@@ -73,17 +78,16 @@ BBOX = {
 
 # TODO: what to do about SENTINEL-2-L2A-TRUE-COLOR collection, not BYOD
 
-# WFSENDPOINT = "https://shservices.mundiwebservices.com/ogc/wfs/"
-MIGRATEDENDPOINT ="https://services.sentinel-hub.com/ogc/wfs/"
 REQUESTOPTIONS = "?REQUEST=%s&srsName=%s&TIME=%s&outputformat=%s"%(
     "GetFeature", "EPSG:4326",
-    "1900-01-01/3000-02-01", "application/json"
+    "2022-01-01/3000-02-01", "application/json"
 )
 
 date_data_file = '/config/data_dates.json'
 results_dict = {}
 
 def retrieve_entries(url, offset):
+    print("%s&FEATURE_OFFSET=%s"%(url, (offset*100)))
     r = requests.get("%s&FEATURE_OFFSET=%s"%(url, (offset*100)))
     res = []
     try:
@@ -99,47 +103,43 @@ def retrieve_entries(url, offset):
         print (message)
     return res
 
-
-# print("Fetching information of available dates for BYOD data from deprecated server")
-# try:
-#     for key in COLLECTIONS:
-#         # fetch identifier from environment
-#         if key in envs:
-#             coll_id = envs[key]
-#             layer_name = "&TYPENAMES=DSS10-%s"%(coll_id)
-#             if key in BBOX:
-#                 # There are multiple locations for this dataset so we do
-#                 # requests for each location
-#                 for (val, subr_key) in BBOX[key]:
-#                     bbox = "&BBOX=%s"%val
-#                     request = "%s%s%s%s%s"%(
-#                         WFSENDPOINT, envs["SH_INSTANCE_ID"], REQUESTOPTIONS,
-#                         layer_name, bbox
-#                     )
-#                     results = retrieve_entries(request, 0)
-#                     results.sort()
-#                     results_dict[("%s_%s"%(key, subr_key))] = results
-#             else:
-#                 bbox = "&BBOX=-180,90,180,-90"
-#                 request = "%s%s%s%s%s"%(
-#                     WFSENDPOINT, envs["SH_INSTANCE_ID"], REQUESTOPTIONS,
-#                     layer_name, bbox
-#                 )
-#                 results = retrieve_entries(request, 0)
-#                 results = list(set(results))
-#                 results.sort()
-#                 results_dict[key] = results
-#         else:
-#             print("Key for %s not found in environment variables"%key)
-# except Exception as e:
-#     print("Issue retrieving BYOD information from deprecated server")
-#     template = "An exception of type {0} occurred. Arguments:\n{1!r}"
-#     message = template.format(type(e).__name__, e.args)
-#     print (message)
-
-print("Fetching information of available dates for BYOD data from new server")
+print("Fetching information of available dates for public SH datasets")
 try:
-    for key in MIGRATED_COLLECTIONS:
+    for key, typename in OPEN_COLLECTIONS:
+        # fetch identifier from environment
+        layer_name = "&TYPENAMES=%s"%(typename)
+        if key in BBOX:
+            # There are multiple locations for this dataset so we do
+            # requests for each location
+            for (val, subr_key) in BBOX[key]:
+                bbox = "&BBOX=%s"%val
+                request = "%s%s%s%s%s"%(
+                    WFS_OPEN_COLLECTIONS, envs["SH_INSTANCE_ID"], REQUESTOPTIONS,
+                    layer_name, bbox
+                )
+                results = retrieve_entries(request, 0)
+                results.sort()
+                results_dict[("%s_%s"%(key, subr_key))] = results
+        else:
+            bbox = "&BBOX=-180,90,180,-90"
+            request = "%s%s%s%s%s"%(
+                WFS_OPEN_COLLECTIONS, envs["SH_INSTANCE_ID"], REQUESTOPTIONS,
+                layer_name, bbox
+            )
+            results = retrieve_entries(request, 0)
+            results = list(set(results))
+            results.sort()
+            results_dict[key] = results
+
+except Exception as e:
+    print("Issue retrieving BYOD information from new server")
+    template = "An exception of type {0} occurred. Arguments:\n{1!r}"
+    message = template.format(type(e).__name__, e.args)
+    print (message)
+
+print("Fetching information of available dates for BYOD data from EDC AWS")
+try:
+    for key in COLLECTIONS:
         # fetch identifier from environment
         if key in envs:
             coll_id = envs[key]
@@ -152,7 +152,7 @@ try:
                 for (val, subr_key) in BBOX[key]:
                     bbox = "&BBOX=%s"%val
                     request = "%s%s%s%s%s"%(
-                        MIGRATEDENDPOINT, envs["SH_INSTANCE_ID"], REQUESTOPTIONS,
+                        WFS_ENDPOINT, envs["SH_INSTANCE_ID"], REQUESTOPTIONS,
                         layer_name, bbox
                     )
                     results = retrieve_entries(request, 0)
@@ -161,7 +161,7 @@ try:
             else:
                 bbox = "&BBOX=-180,90,180,-90"
                 request = "%s%s%s%s%s"%(
-                    MIGRATEDENDPOINT, envs["SH_INSTANCE_ID"], REQUESTOPTIONS,
+                    WFS_ENDPOINT, envs["SH_INSTANCE_ID"], REQUESTOPTIONS,
                     layer_name, bbox
                 )
                 results = retrieve_entries(request, 0)
@@ -176,12 +176,13 @@ except Exception as e:
     message = template.format(type(e).__name__, e.args)
     print (message)
 
+
 print("Writing results to %s"%date_data_file)
 with open(date_data_file, "w") as fp:
     json.dump(results_dict, fp, indent=4, sort_keys=True)
 
 ###############################################################################
-
+'''
 delete_files = False
 
 geoDB_map = {
@@ -558,3 +559,5 @@ generateData(
         ['E200', ''],
     ]
 )
+
+'''
