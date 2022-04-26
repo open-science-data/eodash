@@ -1543,7 +1543,7 @@ export const globalIndicators = [
         },
         lastColorCode: null,
         aoi: null,
-        time: availableDates.VIS_SO2_SENTINELHUB,
+        time: availableDates.VIS_SO2_DAILY_DATA,
         inputData: [],
         yAxis: 'SO2',
         display: {
