@@ -322,7 +322,7 @@ export const indicatorsDefinition = Object.freeze({
     class: 'economic',
     story: '/data/trilateral/N5',
     themes: ['covid-19', 'economy', 'atmosphere', 'oceans'],
-    smallSubAoi: true,
+    largeSubAoi: true,
   },
   N6: {
     indicator: 'Cropped Area - Global',
@@ -4203,6 +4203,7 @@ const createSTACCollectionIndicator = (collection, key, value, index, url,
 const urlMapping = {
   'nightlights-hd-monthly': 'https://staging-raster.delta-backend.com/cog/tiles/WebMercatorQuad/{z}/{x}/{y}?{time}&resampling_method=bilinear&rescale=0,255&bidx=1&colormap_name=inferno',
   'nightlights-hd-1band': 'https://staging-raster.delta-backend.com/cog/tiles/WebMercatorQuad/{z}/{x}/{y}?{time}&resampling_method=bilinear&rescale=0,255&bidx=1&colormap_name=inferno',
+  "nightlights-500m-daily": 'https://staging-raster.delta-backend.com/cog/tiles/WebMercatorQuad/{z}/{x}/{y}?{time}&resampling_method=bilinear&rescale=0,255&bidx=1&colormap_name=inferno',
   'blue-tarp-planetscope': 'https://staging-raster.delta-backend.com/cog/tiles/WebMercatorQuad/{z}/{x}/{y}?{time}',
   'blue-tarp-detection': 'https://staging-raster.delta-backend.com/cog/tiles/WebMercatorQuad/{z}/{x}/{y}?{time}&resampling_method=bilinear&rescale=0,10000&bidx=1&colormap_name=inferno',
 };

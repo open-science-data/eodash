@@ -633,6 +633,78 @@
       }
     }
   },
+  "nightlights-500m-daily": {
+    "indicator": "N5",
+    "description": "Nightlights",
+    "legendUrl": "",
+    "entries": {
+      "[110.002, 29.998, 120.002, 49.998]": {
+        "location": "Location 2",
+        "id": "loc1",
+        "country": "PR"
+      },
+      "[110.0, 30.0, 120.0, 50.0]": {
+        "location": "Location 3",
+        "id": "loc2",
+        "country": "PR"
+      },
+      "[130.002, 29.998, 150.002, 39.998]": {
+        "location": "Location 4",
+        "id": "loc3",
+        "country": "PR"
+      },
+      "[130.0, 30.0, 150.0, 40.0]": {
+        "location": "Location 5",
+        "id": "loc4",
+        "country": "PR"
+      },
+      "[-130.0, 30.0, -120.0, 40.0]": {
+        "location": "Location 6",
+        "id": "loc5",
+        "country": "PR"
+      },
+      "[-129.998, 29.998, -119.998, 39.998]": {
+        "location": "Location 7",
+        "id": "loc6",
+        "country": "PR"
+      },
+      "[-80.0, 40.0, -70.0, 50.0]": {
+        "location": "Location 8",
+        "id": "loc7",
+        "country": "PR"
+      },
+      "[-79.998, 39.998, -69.998, 49.998]": {
+        "location": "Location 9",
+        "id": "loc8",
+        "country": "PR"
+      },
+      "[-119.998, 29.998, -109.998, 39.998]": {
+        "location": "Location 10",
+        "id": "loc9",
+        "country": "PR"
+      },
+      "[-120.0, 30.0, -110.0, 40.0]": {
+        "location": "Location 11",
+        "id": "loc10",
+        "country": "PR"
+      },
+      "[0.0, 50.0, 10.0, 60.0]": {
+        "location": "Location 12",
+        "id": "loc11",
+        "country": "PR"
+      },
+      "[0.002, 49.998, 10.002, 59.998]": {
+        "location": "Location 13",
+        "id": "loc12",
+        "country": "PR"
+      },
+      "[-69.998, 9.998, -59.998, 19.998]": {
+        "location": "Location 14",
+        "id": "loc13",
+        "country": "PR"
+      }
+    }
+  },
   "nightlights-hd-1band": {
     "indicator": "N5",
     "description": "Nightlights",
