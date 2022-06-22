@@ -157,6 +157,7 @@ STAC_COLLECTIONS = {
     "MO_NPP_npp_vgpm": "https://staging-stac.delta-backend.com/collections/",
     "nceo_africa_2017": "https://staging-stac.delta-backend.com/collections/",
     "nightlights-hd-1band": "https://staging-stac.delta-backend.com/collections/",
+    # "nightlights-500m-daily": "https://staging-stac.delta-backend.com/collections/",
     # these collections have a bit over 200 entries requesting them somehow breaks the endpoint
     #"HLSS30.002": "https://staging-stac.delta-backend.com/collections/",
     #"HLSL30.002": "https://staging-stac.delta-backend.com/collections/",
@@ -270,7 +271,7 @@ def retrieve_location_stac_entries(url, offset, location, collection):
     features = json_resp["features"]
     try:
         for f in features:
-            if collection in ["blue-tarp-detection", "blue-tarp-planetscope"]:
+            if collection in ["blue-tarp-detection", "blue-tarp-planetscope", "nightlights-500m-daily"]:
                 bbox = [round(float(i), 3) for i in f["bbox"]]
             else:
                 bbox = f["bbox"]
