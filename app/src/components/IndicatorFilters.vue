@@ -179,6 +179,8 @@
                             .indicatorObject[groupedIndicators[indicator.code].label][0]
                           : feature.properties
                             .indicatorObject[groupedIndicators[indicator.code].label])
+
+                          || feature.properties.indicatorObject.lastIndicatorValue
                         }}
                       </small>
                     </v-list-item-title>
