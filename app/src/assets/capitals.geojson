@@ -22,7 +22,7 @@
             "iso2": "BE"
         },
         "geometry": {
-            "coordinates": [4.2, 50.5],
+            "coordinates": [4.34, 50.83],
             "type": "Point"
         },
         "id": "BE"
@@ -48,7 +48,7 @@
             "iso2": "BG"
         },
         "geometry": {
-            "coordinates": [23.19, 42.41],
+            "coordinates": [23.32, 42.68],
             "type": "Point"
         },
         "id": "BG"
@@ -61,7 +61,7 @@
             "iso2": "BA"
         },
         "geometry": {
-            "coordinates": [18.25, 43.52],
+            "coordinates": [18.42, 43.87],
             "type": "Point"
         },
         "id": "BA"
@@ -346,7 +346,7 @@
             "iso2": "RS"
         },
         "geometry": {
-            "coordinates": [20.3, 44.5],
+            "coordinates": [20.5, 44.83],
             "type": "Point"
         },
         "id": "RS"
@@ -398,7 +398,7 @@
             "iso2": "RO"
         },
         "geometry": {
-            "coordinates": [26.06, 44.26],
+            "coordinates": [26.11, 44.43],
             "type": "Point"
         },
         "id": "RO"
@@ -462,7 +462,7 @@
             "iso2": "GR"
         },
         "geometry": {
-            "coordinates": [23.44, 37.59],
+            "coordinates": [23.74, 37.98],
             "type": "Point"
         },
         "id": "GR"
@@ -553,7 +553,7 @@
             "iso2": "GB"
         },
         "geometry": {
-            "coordinates": [-0.1, 51.3],
+            "coordinates": [-0.08, 51.5],
             "type": "Point"
         },
         "id": "GB"
@@ -696,7 +696,7 @@
             "iso2": "HR"
         },
         "geometry": {
-            "coordinates": [16, 45.48],
+            "coordinates": [16.01, 45.8],
             "type": "Point"
         },
         "id": "HR"
@@ -722,7 +722,7 @@
             "iso2": "HU"
         },
         "geometry": {
-            "coordinates": [19.05, 47.3],
+            "coordinates": [19.09, 47.5],
             "type": "Point"
         },
         "id": "HU"
@@ -824,7 +824,7 @@
             "iso2": "PT"
         },
         "geometry": {
-            "coordinates": [-9.08, 38.43],
+            "coordinates": [-9.13, 38.72],
             "type": "Point"
         },
         "id": "PT"
@@ -967,7 +967,7 @@
             "iso2": "PL"
         },
         "geometry": {
-            "coordinates": [21, 52.15],
+            "coordinates": [21.01, 52.25],
             "type": "Point"
         },
         "id": "PL"
@@ -1018,7 +1018,7 @@
             "iso2": "EE"
         },
         "geometry": {
-            "coordinates": [24.43, 59.26],
+            "coordinates": [24.72, 59.43],
             "type": "Point"
         },
         "id": "EE"
@@ -1070,7 +1070,7 @@
             "iso2": "IT"
         },
         "geometry": {
-            "coordinates": [12.29, 41.54],
+            "coordinates": [12.48, 41.9],
             "type": "Point"
         },
         "id": "IT"
@@ -1173,7 +1173,7 @@
             "iso2": "ES"
         },
         "geometry": {
-            "coordinates": [-3.41, 40.24],
+            "coordinates": [-3.68, 40.4],
             "type": "Point"
         },
         "id": "ES"
@@ -1199,7 +1199,7 @@
             "iso2": "ME"
         },
         "geometry": {
-            "coordinates": [19.16, 42.26],
+            "coordinates": [19.27, 42.43],
             "type": "Point"
         },
         "id": "ME"
@@ -1264,7 +1264,7 @@
             "iso2": "MC"
         },
         "geometry": {
-            "coordinates": [7.25, 43.44],
+            "coordinates": [7.42, 43.73],
             "type": "Point"
         },
         "id": "MC"
@@ -1354,7 +1354,7 @@
             "iso2": "MK"
         },
         "geometry": {
-            "coordinates": [21.26, 42],
+            "coordinates": [21.43, 42],
             "type": "Point"
         },
         "id": "MK"
@@ -1380,7 +1380,7 @@
             "iso2": "MT"
         },
         "geometry": {
-            "coordinates": [14.3, 35.53],
+            "coordinates": [14.51, 35.88],
             "type": "Point"
         },
         "id": "MT"
@@ -1523,7 +1523,7 @@
             "iso2": "FR"
         },
         "geometry": {
-            "coordinates": [2.2, 48.52],
+            "coordinates": [2.33, 48.87],
             "type": "Point"
         },
         "id": "FR"
@@ -1561,7 +1561,7 @@
             "iso2": "FI"
         },
         "geometry": {
-            "coordinates": [24.56, 60.1],
+            "coordinates": [24.93, 60.17],
             "type": "Point"
         },
         "id": "FI"
@@ -1639,7 +1639,7 @@
             "iso2": "NL"
         },
         "geometry": {
-            "coordinates": [4.54, 52.23],
+            "coordinates": [4.92, 52.35],
             "type": "Point"
         },
         "id": "NL"
@@ -1652,7 +1652,7 @@
             "iso2": "NO"
         },
         "geometry": {
-            "coordinates": [10.45, 59.55],
+            "coordinates": [10.75, 59.92],
             "type": "Point"
         },
         "id": "NO"
@@ -1820,7 +1820,7 @@
             "iso2": "CH"
         },
         "geometry": {
-            "coordinates": [7.26, 46.57],
+            "coordinates": [7.47, 46.92],
             "type": "Point"
         },
         "id": "CH"
@@ -1950,7 +1950,7 @@
             "iso2": "CZ"
         },
         "geometry": {
-            "coordinates": [14.28, 50.05],
+            "coordinates": [14.47, 50.08],
             "type": "Point"
         },
         "id": "CZ"
@@ -1963,7 +1963,7 @@
             "iso2": "CY"
         },
         "geometry": {
-            "coordinates": [33.22, 35.1],
+            "coordinates": [33.37, 35.17],
             "type": "Point"
         },
         "id": "CY"
@@ -2158,7 +2158,7 @@
             "iso2": "SK"
         },
         "geometry": {
-            "coordinates": [17.07, 48.09],
+            "coordinates": [17.12, 48.15],
             "type": "Point"
         },
         "id": "SK"
@@ -2184,7 +2184,7 @@
             "iso2": "SI"
         },
         "geometry": {
-            "coordinates": [14.31, 46.03],
+            "coordinates": [14.52, 46.05],
             "type": "Point"
         },
         "id": "SI"
@@ -2314,7 +2314,7 @@
             "iso2": "SE"
         },
         "geometry": {
-            "coordinates": [18.03, 59.2],
+            "coordinates": [18.06, 59.33],
             "type": "Point"
         },
         "id": "SE"
@@ -2379,7 +2379,7 @@
             "iso2": "DK"
         },
         "geometry": {
-            "coordinates": [12.35, 55.4],
+            "coordinates": [12.58, 55.67],
             "type": "Point"
         },
         "id": "DK"
@@ -2405,7 +2405,7 @@
             "iso2": "DE"
         },
         "geometry": {
-            "coordinates": [13.24, 52.31],
+            "coordinates": [13.41, 52.52],
             "type": "Point"
         },
         "id": "DE"
@@ -2561,7 +2561,7 @@
             "iso2": "TR"
         },
         "geometry": {
-            "coordinates": [32.52, 39.56],
+            "coordinates": [32.87, 39.93],
             "type": "Point"
         },
         "id": "TR"
@@ -2600,7 +2600,7 @@
             "iso2": "LV"
         },
         "geometry": {
-            "coordinates": [24.06, 56.57],
+            "coordinates": [24.11, 56.95],
             "type": "Point"
         },
         "id": "LV"
@@ -2626,7 +2626,7 @@
             "iso2": "LT"
         },
         "geometry": {
-            "coordinates": [25.19, 54.41],
+            "coordinates": [25.32, 54.68],
             "type": "Point"
         },
         "id": "LT"
@@ -2639,7 +2639,7 @@
             "iso2": "LU"
         },
         "geometry": {
-            "coordinates": [6.07, 49.36],
+            "coordinates": [6.12, 49.6],
             "type": "Point"
         },
         "id": "LU"
@@ -2859,7 +2859,7 @@
             "iso2": "IS"
         },
         "geometry": {
-            "coordinates": [-21.57, 64.09],
+            "coordinates": [-21.95, 64.15],
             "type": "Point"
         },
         "id": "IS"
@@ -2898,7 +2898,7 @@
             "iso2": "AL"
         },
         "geometry": {
-            "coordinates": [19.49, 41.19],
+            "coordinates": [19.82, 41.32],
             "type": "Point"
         },
         "id": "AL"
@@ -3000,7 +3000,7 @@
             "iso2": "AT"
         },
         "geometry": {
-            "coordinates": [16.22, 48.12],
+            "coordinates": [16.37, 48.2],
             "type": "Point"
         },
         "id": "AT"
@@ -3065,7 +3065,7 @@
             "iso2": "IE"
         },
         "geometry": {
-            "coordinates": [-6.14, 53.19],
+            "coordinates": [-6.23, 53.32],
             "type": "Point"
         },
         "id": "IE"

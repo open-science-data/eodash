@@ -10240,7 +10240,7 @@
         "yAxis": "[%]"
     },
     {
-        "aoi": "48.12,16.22",
+        "aoi": "48.2,16.37",
         "aoiID": "AT",
         "city": "Austria",
         "country": "AT",
@@ -10260,7 +10260,7 @@
         "yAxis": "[%]"
     },
     {
-        "aoi": "50.5,4.2",
+        "aoi": "50.83,4.34",
         "aoiID": "BE",
         "city": "Belgium",
         "country": "BE",
@@ -10280,7 +10280,7 @@
         "yAxis": "[%]"
     },
     {
-        "aoi": "42.41,23.19",
+        "aoi": "42.68,23.32",
         "aoiID": "BG",
         "city": "Bulgaria",
         "country": "BG",
@@ -10300,7 +10300,7 @@
         "yAxis": "[%]"
     },
     {
-        "aoi": "50.05,14.28",
+        "aoi": "50.08,14.47",
         "aoiID": "CZ",
         "city": "Czech Republic",
         "country": "CZ",
@@ -10320,7 +10320,7 @@
         "yAxis": "[%]"
     },
     {
-        "aoi": "52.31,13.24",
+        "aoi": "52.52,13.41",
         "aoiID": "DE",
         "city": "Germany",
         "country": "DE",
@@ -10340,7 +10340,7 @@
         "yAxis": "[%]"
     },
     {
-        "aoi": "55.4,12.35",
+        "aoi": "55.67,12.58",
         "aoiID": "DK",
         "city": "Denmark",
         "country": "DK",
@@ -10360,7 +10360,7 @@
         "yAxis": "[%]"
     },
     {
-        "aoi": "59.26,24.43",
+        "aoi": "59.43,24.72",
         "aoiID": "EE",
         "city": "Estonia",
         "country": "EE",
@@ -10380,7 +10380,7 @@
         "yAxis": "[%]"
     },
     {
-        "aoi": "40.24,-3.41",
+        "aoi": "40.4,-3.68",
         "aoiID": "ES",
         "city": "Spain",
         "country": "ES",
@@ -10400,7 +10400,7 @@
         "yAxis": "[%]"
     },
     {
-        "aoi": "60.1,24.56",
+        "aoi": "60.17,24.93",
         "aoiID": "FI",
         "city": "Finland",
         "country": "FI",
@@ -10420,7 +10420,7 @@
         "yAxis": "[%]"
     },
     {
-        "aoi": "48.52,2.2",
+        "aoi": "48.87,2.33",
         "aoiID": "FR",
         "city": "France",
         "country": "FR",
@@ -10440,7 +10440,7 @@
         "yAxis": "[%]"
     },
     {
-        "aoi": "51.3,-0.1",
+        "aoi": "51.5,-0.08",
         "aoiID": "GB",
         "city": "United Kingdom",
         "country": "GB",
@@ -10460,7 +10460,7 @@
         "yAxis": "[%]"
     },
     {
-        "aoi": "37.59,23.44",
+        "aoi": "37.98,23.74",
         "aoiID": "GR",
         "city": "Greece",
         "country": "GR",
@@ -10480,7 +10480,7 @@
         "yAxis": "[%]"
     },
     {
-        "aoi": "45.48,16",
+        "aoi": "45.8,16.01",
         "aoiID": "HR",
         "city": "Croatia",
         "country": "HR",
@@ -10500,7 +10500,7 @@
         "yAxis": "[%]"
     },
     {
-        "aoi": "47.3,19.05",
+        "aoi": "47.5,19.09",
         "aoiID": "HU",
         "city": "Hungary",
         "country": "HU",
@@ -10520,7 +10520,7 @@
         "yAxis": "[%]"
     },
     {
-        "aoi": "53.19,-6.14",
+        "aoi": "53.32,-6.23",
         "aoiID": "IE",
         "city": "Ireland",
         "country": "IE",
@@ -10540,7 +10540,7 @@
         "yAxis": "[%]"
     },
     {
-        "aoi": "41.54,12.29",
+        "aoi": "41.9,12.48",
         "aoiID": "IT",
         "city": "Italy",
         "country": "IT",
@@ -10560,7 +10560,7 @@
         "yAxis": "[%]"
     },
     {
-        "aoi": "54.41,25.19",
+        "aoi": "54.68,25.32",
         "aoiID": "LT",
         "city": "Lithuania",
         "country": "LT",
@@ -10580,7 +10580,7 @@
         "yAxis": "[%]"
     },
     {
-        "aoi": "49.36,6.07",
+        "aoi": "49.6,6.12",
         "aoiID": "LU",
         "city": "Luxembourg",
         "country": "LU",
@@ -10600,7 +10600,7 @@
         "yAxis": "[%]"
     },
     {
-        "aoi": "56.57,24.06",
+        "aoi": "56.95,24.11",
         "aoiID": "LV",
         "city": "Latvia",
         "country": "LV",
@@ -10620,7 +10620,7 @@
         "yAxis": "[%]"
     },
     {
-        "aoi": "35.53,14.3",
+        "aoi": "35.88,14.51",
         "aoiID": "MT",
         "city": "Malta",
         "country": "MT",
@@ -10640,7 +10640,7 @@
         "yAxis": "[%]"
     },
     {
-        "aoi": "52.23,4.54",
+        "aoi": "52.35,4.92",
         "aoiID": "NL",
         "city": "Netherlands",
         "country": "NL",
@@ -10660,7 +10660,7 @@
         "yAxis": "[%]"
     },
     {
-        "aoi": "52.15,21",
+        "aoi": "52.25,21.01",
         "aoiID": "PL",
         "city": "Poland",
         "country": "PL",
@@ -10680,7 +10680,7 @@
         "yAxis": "[%]"
     },
     {
-        "aoi": "38.43,-9.08",
+        "aoi": "38.72,-9.13",
         "aoiID": "PT",
         "city": "Portugal",
         "country": "PT",
@@ -10700,7 +10700,7 @@
         "yAxis": "[%]"
     },
     {
-        "aoi": "44.26,26.06",
+        "aoi": "44.43,26.11",
         "aoiID": "RO",
         "city": "Romania",
         "country": "RO",
@@ -10720,7 +10720,7 @@
         "yAxis": "[%]"
     },
     {
-        "aoi": "59.2,18.03",
+        "aoi": "59.33,18.06",
         "aoiID": "SE",
         "city": "Sweden",
         "country": "SE",
@@ -10740,7 +10740,7 @@
         "yAxis": "[%]"
     },
     {
-        "aoi": "46.03,14.31",
+        "aoi": "46.05,14.52",
         "aoiID": "SI",
         "city": "Slovenia",
         "country": "SI",
@@ -10760,7 +10760,7 @@
         "yAxis": "[%]"
     },
     {
-        "aoi": "48.09,17.07",
+        "aoi": "48.15,17.12",
         "aoiID": "SK",
         "city": "Slovakia",
         "country": "SK",
@@ -10780,7 +10780,7 @@
         "yAxis": "[%]"
     },
     {
-        "aoi": "48.12,16.22",
+        "aoi": "48.2,16.37",
         "aoiID": "AT",
         "city": "Austria",
         "country": "AT",
@@ -10800,7 +10800,7 @@
         "yAxis": "[%]"
     },
     {
-        "aoi": "50.5,4.2",
+        "aoi": "50.83,4.34",
         "aoiID": "BE",
         "city": "Belgium",
         "country": "BE",
@@ -10820,7 +10820,7 @@
         "yAxis": "[%]"
     },
     {
-        "aoi": "42.41,23.19",
+        "aoi": "42.68,23.32",
         "aoiID": "BG",
         "city": "Bulgaria",
         "country": "BG",
@@ -10840,7 +10840,7 @@
         "yAxis": "[%]"
     },
     {
-        "aoi": "35.1,33.22",
+        "aoi": "35.17,33.37",
         "aoiID": "CY",
         "city": "Cyprus",
         "country": "CY",
@@ -10860,7 +10860,7 @@
         "yAxis": "[%]"
     },
     {
-        "aoi": "50.05,14.28",
+        "aoi": "50.08,14.47",
         "aoiID": "CZ",
         "city": "Czech Republic",
         "country": "CZ",
@@ -10880,7 +10880,7 @@
         "yAxis": "[%]"
     },
     {
-        "aoi": "52.31,13.24",
+        "aoi": "52.52,13.41",
         "aoiID": "DE",
         "city": "Germany",
         "country": "DE",
@@ -10900,7 +10900,7 @@
         "yAxis": "[%]"
     },
     {
-        "aoi": "55.4,12.35",
+        "aoi": "55.67,12.58",
         "aoiID": "DK",
         "city": "Denmark",
         "country": "DK",
@@ -10920,7 +10920,7 @@
         "yAxis": "[%]"
     },
     {
-        "aoi": "59.26,24.43",
+        "aoi": "59.43,24.72",
         "aoiID": "EE",
         "city": "Estonia",
         "country": "EE",
@@ -10940,7 +10940,7 @@
         "yAxis": "[%]"
     },
     {
-        "aoi": "40.24,-3.41",
+        "aoi": "40.4,-3.68",
         "aoiID": "ES",
         "city": "Spain",
         "country": "ES",
@@ -10960,7 +10960,7 @@
         "yAxis": "[%]"
     },
     {
-        "aoi": "60.1,24.56",
+        "aoi": "60.17,24.93",
         "aoiID": "FI",
         "city": "Finland",
         "country": "FI",
@@ -10980,7 +10980,7 @@
         "yAxis": "[%]"
     },
     {
-        "aoi": "48.52,2.2",
+        "aoi": "48.87,2.33",
         "aoiID": "FR",
         "city": "France",
         "country": "FR",
@@ -11000,7 +11000,7 @@
         "yAxis": "[%]"
     },
     {
-        "aoi": "51.3,-0.1",
+        "aoi": "51.5,-0.08",
         "aoiID": "GB",
         "city": "United Kingdom",
         "country": "GB",
@@ -11020,7 +11020,7 @@
         "yAxis": "[%]"
     },
     {
-        "aoi": "37.59,23.44",
+        "aoi": "37.98,23.74",
         "aoiID": "GR",
         "city": "Greece",
         "country": "GR",
@@ -11040,7 +11040,7 @@
         "yAxis": "[%]"
     },
     {
-        "aoi": "45.48,16",
+        "aoi": "45.8,16.01",
         "aoiID": "HR",
         "city": "Croatia",
         "country": "HR",
@@ -11060,7 +11060,7 @@
         "yAxis": "[%]"
     },
     {
-        "aoi": "47.3,19.05",
+        "aoi": "47.5,19.09",
         "aoiID": "HU",
         "city": "Hungary",
         "country": "HU",
@@ -11080,7 +11080,7 @@
         "yAxis": "[%]"
     },
     {
-        "aoi": "53.19,-6.14",
+        "aoi": "53.32,-6.23",
         "aoiID": "IE",
         "city": "Ireland",
         "country": "IE",
@@ -11100,7 +11100,7 @@
         "yAxis": "[%]"
     },
     {
-        "aoi": "41.54,12.29",
+        "aoi": "41.9,12.48",
         "aoiID": "IT",
         "city": "Italy",
         "country": "IT",
@@ -11120,7 +11120,7 @@
         "yAxis": "[%]"
     },
     {
-        "aoi": "54.41,25.19",
+        "aoi": "54.68,25.32",
         "aoiID": "LT",
         "city": "Lithuania",
         "country": "LT",
@@ -11140,7 +11140,7 @@
         "yAxis": "[%]"
     },
     {
-        "aoi": "49.36,6.07",
+        "aoi": "49.6,6.12",
         "aoiID": "LU",
         "city": "Luxembourg",
         "country": "LU",
@@ -11160,7 +11160,7 @@
         "yAxis": "[%]"
     },
     {
-        "aoi": "56.57,24.06",
+        "aoi": "56.95,24.11",
         "aoiID": "LV",
         "city": "Latvia",
         "country": "LV",
@@ -11180,7 +11180,7 @@
         "yAxis": "[%]"
     },
     {
-        "aoi": "35.53,14.3",
+        "aoi": "35.88,14.51",
         "aoiID": "MT",
         "city": "Malta",
         "country": "MT",
@@ -11200,7 +11200,7 @@
         "yAxis": "[%]"
     },
     {
-        "aoi": "52.23,4.54",
+        "aoi": "52.35,4.92",
         "aoiID": "NL",
         "city": "Netherlands",
         "country": "NL",
@@ -11220,7 +11220,7 @@
         "yAxis": "[%]"
     },
     {
-        "aoi": "52.15,21",
+        "aoi": "52.25,21.01",
         "aoiID": "PL",
         "city": "Poland",
         "country": "PL",
@@ -11240,7 +11240,7 @@
         "yAxis": "[%]"
     },
     {
-        "aoi": "38.43,-9.08",
+        "aoi": "38.72,-9.13",
         "aoiID": "PT",
         "city": "Portugal",
         "country": "PT",
@@ -11260,7 +11260,7 @@
         "yAxis": "[%]"
     },
     {
-        "aoi": "44.26,26.06",
+        "aoi": "44.43,26.11",
         "aoiID": "RO",
         "city": "Romania",
         "country": "RO",
@@ -11280,7 +11280,7 @@
         "yAxis": "[%]"
     },
     {
-        "aoi": "59.2,18.03",
+        "aoi": "59.33,18.06",
         "aoiID": "SE",
         "city": "Sweden",
         "country": "SE",
@@ -11300,7 +11300,7 @@
         "yAxis": "[%]"
     },
     {
-        "aoi": "46.03,14.31",
+        "aoi": "46.05,14.52",
         "aoiID": "SI",
         "city": "Slovenia",
         "country": "SI",
@@ -11320,7 +11320,7 @@
         "yAxis": "[%]"
     },
     {
-        "aoi": "48.09,17.07",
+        "aoi": "48.15,17.12",
         "aoiID": "SK",
         "city": "Slovakia",
         "country": "SK",
@@ -11340,7 +11340,7 @@
         "yAxis": "[%]"
     },
     {
-        "aoi": "48.12,16.22",
+        "aoi": "48.2,16.37",
         "aoiID": "AT",
         "city": "Austria",
         "country": "AT",
@@ -11360,7 +11360,7 @@
         "yAxis": "[%]"
     },
     {
-        "aoi": "50.5,4.2",
+        "aoi": "50.83,4.34",
         "aoiID": "BE",
         "city": "Belgium",
         "country": "BE",
@@ -11380,7 +11380,7 @@
         "yAxis": "[%]"
     },
     {
-        "aoi": "42.41,23.19",
+        "aoi": "42.68,23.32",
         "aoiID": "BG",
         "city": "Bulgaria",
         "country": "BG",
@@ -11400,7 +11400,7 @@
         "yAxis": "[%]"
     },
     {
-        "aoi": "35.1,33.22",
+        "aoi": "35.17,33.37",
         "aoiID": "CY",
         "city": "Cyprus",
         "country": "CY",
@@ -11420,7 +11420,7 @@
         "yAxis": "[%]"
     },
     {
-        "aoi": "50.05,14.28",
+        "aoi": "50.08,14.47",
         "aoiID": "CZ",
         "city": "Czech Republic",
         "country": "CZ",
@@ -11440,7 +11440,7 @@
         "yAxis": "[%]"
     },
     {
-        "aoi": "52.31,13.24",
+        "aoi": "52.52,13.41",
         "aoiID": "DE",
         "city": "Germany",
         "country": "DE",
@@ -11460,7 +11460,7 @@
         "yAxis": "[%]"
     },
     {
-        "aoi": "55.4,12.35",
+        "aoi": "55.67,12.58",
         "aoiID": "DK",
         "city": "Denmark",
         "country": "DK",
@@ -11480,7 +11480,7 @@
         "yAxis": "[%]"
     },
     {
-        "aoi": "59.26,24.43",
+        "aoi": "59.43,24.72",
         "aoiID": "EE",
         "city": "Estonia",
         "country": "EE",
@@ -11500,7 +11500,7 @@
         "yAxis": "[%]"
     },
     {
-        "aoi": "40.24,-3.41",
+        "aoi": "40.4,-3.68",
         "aoiID": "ES",
         "city": "Spain",
         "country": "ES",
@@ -11520,7 +11520,7 @@
         "yAxis": "[%]"
     },
     {
-        "aoi": "60.1,24.56",
+        "aoi": "60.17,24.93",
         "aoiID": "FI",
         "city": "Finland",
         "country": "FI",
@@ -11540,7 +11540,7 @@
         "yAxis": "[%]"
     },
     {
-        "aoi": "48.52,2.2",
+        "aoi": "48.87,2.33",
         "aoiID": "FR",
         "city": "France",
         "country": "FR",
@@ -11560,7 +11560,7 @@
         "yAxis": "[%]"
     },
     {
-        "aoi": "51.3,-0.1",
+        "aoi": "51.5,-0.08",
         "aoiID": "GB",
         "city": "United Kingdom",
         "country": "GB",
@@ -11580,7 +11580,7 @@
         "yAxis": "[%]"
     },
     {
-        "aoi": "37.59,23.44",
+        "aoi": "37.98,23.74",
         "aoiID": "GR",
         "city": "Greece",
         "country": "GR",
@@ -11600,7 +11600,7 @@
         "yAxis": "[%]"
     },
     {
-        "aoi": "45.48,16",
+        "aoi": "45.8,16.01",
         "aoiID": "HR",
         "city": "Croatia",
         "country": "HR",
@@ -11620,7 +11620,7 @@
         "yAxis": "[%]"
     },
     {
-        "aoi": "47.3,19.05",
+        "aoi": "47.5,19.09",
         "aoiID": "HU",
         "city": "Hungary",
         "country": "HU",
@@ -11640,7 +11640,7 @@
         "yAxis": "[%]"
     },
     {
-        "aoi": "53.19,-6.14",
+        "aoi": "53.32,-6.23",
         "aoiID": "IE",
         "city": "Ireland",
         "country": "IE",
@@ -11660,7 +11660,7 @@
         "yAxis": "[%]"
     },
     {
-        "aoi": "41.54,12.29",
+        "aoi": "41.9,12.48",
         "aoiID": "IT",
         "city": "Italy",
         "country": "IT",
@@ -11680,7 +11680,7 @@
         "yAxis": "[%]"
     },
     {
-        "aoi": "54.41,25.19",
+        "aoi": "54.68,25.32",
         "aoiID": "LT",
         "city": "Lithuania",
         "country": "LT",
@@ -11700,7 +11700,7 @@
         "yAxis": "[%]"
     },
     {
-        "aoi": "49.36,6.07",
+        "aoi": "49.6,6.12",
         "aoiID": "LU",
         "city": "Luxembourg",
         "country": "LU",
@@ -11720,7 +11720,7 @@
         "yAxis": "[%]"
     },
     {
-        "aoi": "56.57,24.06",
+        "aoi": "56.95,24.11",
         "aoiID": "LV",
         "city": "Latvia",
         "country": "LV",
@@ -11740,7 +11740,7 @@
         "yAxis": "[%]"
     },
     {
-        "aoi": "35.53,14.3",
+        "aoi": "35.88,14.51",
         "aoiID": "MT",
         "city": "Malta",
         "country": "MT",
@@ -11760,7 +11760,7 @@
         "yAxis": "[%]"
     },
     {
-        "aoi": "52.23,4.54",
+        "aoi": "52.35,4.92",
         "aoiID": "NL",
         "city": "Netherlands",
         "country": "NL",
@@ -11780,7 +11780,7 @@
         "yAxis": "[%]"
     },
     {
-        "aoi": "52.15,21",
+        "aoi": "52.25,21.01",
         "aoiID": "PL",
         "city": "Poland",
         "country": "PL",
@@ -11800,7 +11800,7 @@
         "yAxis": "[%]"
     },
     {
-        "aoi": "38.43,-9.08",
+        "aoi": "38.72,-9.13",
         "aoiID": "PT",
         "city": "Portugal",
         "country": "PT",
@@ -11820,7 +11820,7 @@
         "yAxis": "[%]"
     },
     {
-        "aoi": "44.26,26.06",
+        "aoi": "44.43,26.11",
         "aoiID": "RO",
         "city": "Romania",
         "country": "RO",
@@ -11840,7 +11840,7 @@
         "yAxis": "[%]"
     },
     {
-        "aoi": "59.2,18.03",
+        "aoi": "59.33,18.06",
         "aoiID": "SE",
         "city": "Sweden",
         "country": "SE",
@@ -11860,7 +11860,7 @@
         "yAxis": "[%]"
     },
     {
-        "aoi": "46.03,14.31",
+        "aoi": "46.05,14.52",
         "aoiID": "SI",
         "city": "Slovenia",
         "country": "SI",
@@ -11880,7 +11880,7 @@
         "yAxis": "[%]"
     },
     {
-        "aoi": "48.09,17.07",
+        "aoi": "48.15,17.12",
         "aoiID": "SK",
         "city": "Slovakia",
         "country": "SK",
