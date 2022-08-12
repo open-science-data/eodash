@@ -99,6 +99,7 @@
       temporary
       hide-overlay
       :width="dataPanelFullWidth ? '100%' : `${dataPanelWidth}px`"
+      style="max-height: calc(100vh - 40px); overflow-y: scroll"
       :style="`margin-top: ${$vuetify.application.top}px;
         height: calc(100% - ${$vuetify.application.top + $vuetify.application.footer}px;`"
       class="data-panel"
@@ -202,24 +203,26 @@
       </v-toolbar>
       <div
         class="data-panel"
+        style="max-height: calc(100vh - 40px); overflow-y: scroll"
         :style="{background: $vuetify.theme.themes[theme].background}"
       >
+        <div style="position: relative; width: 100%; height: 100%; overflow: hidden">
+          <banner v-if="currentNews" />
 
-        <banner v-if="currentNews" />
-
-        <h4 v-if="
-            ($store.state.indicators.selectedIndicator && (
-              $store.state.indicators.selectedIndicator.description !==
-              $store.state.indicators.selectedIndicator.indicatorName))"
-          class="px-4 py-2"
-        >
-          {{ queryIndicatorObject
-            && queryIndicatorObject.properties.indicatorObject.indicatorName }}
-        </h4>
-        <data-panel
-          v-if="$store.state.indicators.selectedIndicator"
-          :newsBanner="$refs.newsBanner"
-          :expanded="dataPanelFullWidth" class="fill-height" />
+          <h4 v-if="
+              ($store.state.indicators.selectedIndicator && (
+                $store.state.indicators.selectedIndicator.description !==
+                $store.state.indicators.selectedIndicator.indicatorName))"
+            class="px-4 py-2"
+          >
+            {{ queryIndicatorObject
+              && queryIndicatorObject.properties.indicatorObject.indicatorName }}
+          </h4>
+          <data-panel
+            v-if="$store.state.indicators.selectedIndicator"
+            :newsBanner="$refs.newsBanner"
+            :expanded="dataPanelFullWidth" class="fill-height" />
+        </div>
       </div>
     </v-dialog>
 
@@ -572,6 +575,11 @@ export default {
   .v-badge__badge {
     transform: translateX(-45px);
   }
+}
+
+nav.data-panel {
+  position: fixed;
+  right: 0;
 }
 
 .data-panel {
