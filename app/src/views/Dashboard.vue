@@ -145,7 +145,7 @@
           || $store.state.features.featureFilters.indicators.length > 0"
         :key="panelKey"
         :newsBanner="$refs.newsBanner"
-        :expanded="dataPanelFullWidth" class="px-5" />
+        :expanded="dataPanelFullWidth" class="data-panel-content px-5" />
     </v-navigation-drawer>
     <v-tooltip
       v-if="$vuetify.breakpoint.mdAndUp && indicatorSelected"
@@ -201,7 +201,7 @@
         </v-btn>
       </v-toolbar>
       <div
-        class="scrollContainer data-panel"
+        class="data-panel"
         :style="{background: $vuetify.theme.themes[theme].background}"
       >
 
@@ -232,6 +232,7 @@
       }"
       v-else
     >
+      
       <v-toolbar dark color="primary">
         <v-toolbar-title style="overflow: unset; white-space: pre-wrap;"
           v-if="$store.state.indicators.selectedIndicator"
@@ -275,26 +276,29 @@
         </template>
       </v-toolbar>
       <div
-        class="scrollContainer data-panel"
+        class="data-panel"
+        style="max-height: calc(100vh - 40px); overflow-y: scroll"
         :style="{background: $vuetify.theme.themes[theme].background}"
       >
+        <div style="position: relative; width: 100%; height: 100%; overflow: hidden">
+          <banner v-if="currentNews" />
 
-        <banner v-if="currentNews" />
-
-        <h4 v-if="
-            ($store.state.indicators.selectedIndicator && (
-              $store.state.indicators.selectedIndicator.description !==
-              $store.state.indicators.selectedIndicator.indicatorName))"
-          class="px-4 py-2"
-        >
-          {{ queryIndicatorObject
-            && queryIndicatorObject.properties.indicatorObject.indicatorName }}
-        </h4>
-        <data-panel
-          v-if="$store.state.indicators.selectedIndicator
-            || $store.state.features.featureFilters.indicators.length > 0"
-          :newsBanner="$refs.newsBanner"
-          :expanded="dataPanelFullWidth" class="fill-height" />
+          <h4 v-if="
+              ($store.state.indicators.selectedIndicator && (
+                $store.state.indicators.selectedIndicator.description !==
+                $store.state.indicators.selectedIndicator.indicatorName))"
+            class="px-4 py-2"
+          >
+            {{ queryIndicatorObject
+              && queryIndicatorObject.properties.indicatorObject.indicatorName }}
+          </h4>
+          <data-panel
+            v-if="$store.state.indicators.selectedIndicator
+              || $store.state.features.featureFilters.indicators.length > 0"
+            :newsBanner="$refs.newsBanner"
+            :expanded="dataPanelFullWidth" class="fill-height" />
+        
+        </div>
       </div>
     </div>
 
@@ -569,6 +573,19 @@ export default {
   }
 }
 
+.data-panel {
+  position: relative;
+
+  .data-panel-content {
+    position: absolute;
+    top: 40px;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    max-height: 100vh;
+  }
+}
+
 .reopen-right-drawer {
   position: absolute;
   top: 50%;
@@ -589,7 +606,9 @@ export default {
   position: fixed;
   top: 0;
   left: 0;
+  bottom: 0;
   z-index: 1001;
+  -webkit-overflow-scrolling: touch;
 
   &.retracted {
     transform: translateY(66vh);

@@ -383,7 +383,7 @@ Draw an area on the map using the shape buttons to generate a custom chart!
                     - (multipleTabCompare ? 48 : 0) + 'px') }`"
         >
           <v-row
-            class="mt-0 fill-height scrollContainer"
+            class="mt-0 fill-height"
           >
             <v-col
               cols="12"
@@ -478,7 +478,7 @@ Draw an area on the map using the shape buttons to generate a custom chart!
             >
               <div
                 v-html="story"
-                class="md-body"
+                class="md-body overflow-visible"
               ></div>
               <v-btn
                 v-if="indicatorObject && externalData"
@@ -527,7 +527,7 @@ Select a point of interest on the map to see the data for a specific location!
                     - 15 + 'px') }`"
         >
           <v-row
-            class="mt-0 fill-height scrollContainer"
+            class="mt-0 fill-height"
           >
             <v-col
               cols="12"
@@ -537,7 +537,7 @@ Select a point of interest on the map to see the data for a specific location!
             >
               <div
                 v-html="story"
-                class="md-body"
+                class="md-body overflow-visible"
               ></div>
             </v-col>
           </v-row>
