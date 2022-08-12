@@ -478,7 +478,7 @@ Draw an area on the map using the shape buttons to generate a custom chart!
             >
               <div
                 v-html="story"
-                class="md-body overflow-visible"
+                class="md-body overflow-visible px-8"
               ></div>
               <v-btn
                 v-if="indicatorObject && externalData"
@@ -537,7 +537,7 @@ Select a point of interest on the map to see the data for a specific location!
             >
               <div
                 v-html="story"
-                class="md-body overflow-visible"
+                class="md-body overflow-visible px-8"
               ></div>
             </v-col>
           </v-row>
