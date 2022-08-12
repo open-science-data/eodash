@@ -333,6 +333,7 @@
     </v-dialog>
 
     <v-content
+      style="position: absolute; top: 0; left: 0;"
       :style="`height: 100vh; height: calc((var(--vh, 1vh) * 100) + ${$vuetify.application.top
         + $vuetify.application.footer}px); overflow:hidden; width: 100%`"
     >
