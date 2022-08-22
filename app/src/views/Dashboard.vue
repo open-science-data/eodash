@@ -521,7 +521,10 @@ export default {
     },
     indicatorSelected(selected) {
       if (selected) {
-        this.drawerRight = true;
+        if (this.$vuetify.breakpoint.lgAndUp) {
+          this.drawerRight = true;
+        }
+
         if (!this.$vuetify.breakpoint.mdAndUp) {
           this.dialog = true;
         }
