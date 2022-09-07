@@ -471,7 +471,7 @@ export default {
     },
   },
   mounted() {
-    const { map } = getMapInstance(this.mapId);
+    const { map } = getMapInstance(this.mapId, { disableZoom: true });
     if (this.mapId === 'centerMap') {
       const cluster = getCluster(this.mapId, { vm: this, mapId: this.mapId });
       cluster.setActive(true, this.overlayCallback);

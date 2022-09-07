@@ -7,7 +7,8 @@
       : (storyModeEnabled ? 'pa-0' : 'pa-5')"
       :style="`margin-top: ${$vuetify.application.top}px;
         height: calc((var(--vh, 1vh) * 100);
-        overflow-y: ${storyModeEnabled ? 'hidden' : 'auto'}; overflow-x: hidden`"
+        overflow-y: ${storyModeEnabled
+          && !scrollyModeEnabled ? 'hidden' : 'auto'}; overflow-x: hidden`"
     id="scroll-target"
   >
     <global-header />
@@ -169,7 +170,7 @@
               </p>
             </template>
             <div
-              v-if="storyModeEnabled"
+              v-if="storyModeEnabled && !scrollyModeEnabled"
             >
               <v-btn
                 x-large
@@ -193,6 +194,16 @@
                 <v-icon left>mdi-share-variant</v-icon>
                 share
               </v-btn>
+            </div>
+            <div
+              v-if="scrollyModeEnabled"
+              class="text-center"
+            >
+              <v-icon
+                id="scrollArrow"
+              >
+                mdi-arrow-down
+              </v-icon>
             </div>
             <v-dialog
               v-model="popupOpen"
@@ -293,6 +304,7 @@
         :enableEditing="!!(newDashboard || hasEditingPrivilege)"
         :popupOpen="popupOpen || !!newFeatureDialog"
         :storyMode="storyModeEnabled"
+        :scrollyMode="scrollyModeEnabled"
         :localFeatures="localDashboardFeatures"
         :dashboardMeta="{ title: dashboardTitle }"
         :themeColor="getCurrentTheme ? getCurrentTheme.color : undefined"
@@ -526,6 +538,7 @@ export default {
     markdownMessage: 'You can use <a href="https://guides.github.com/features/mastering-markdown/" rel="noopener" target="_blank" tabindex="-1">markdown</a>',
     officialDashboard: false,
     storyModeEnabled: false,
+    scrollyModeEnabled: false,
     dashboardError: null,
     localDashboardFeatures: null,
     localDashboardId: null,
@@ -560,6 +573,11 @@ export default {
     if (this.$route.path === '/story') {
       this.storyModeEnabled = true;
       document.onkeydown = this.onKeyPress;
+    } else if (this.$route.path === '/scrolly') {
+      this.scrollyModeEnabled = true;
+      this.storyModeEnabled = true;
+
+      document.addEventListener('mousewheel', this.mouseWheelEventHandler, false);
     }
 
     let id = null;
@@ -831,7 +849,7 @@ export default {
         }
         for (var p in obj) {
           if (obj.hasOwnProperty(p) &&
-              this.getDeepProperty(obj[p], prop)) { 
+              this.getDeepProperty(obj[p], prop)) {
             return obj[p][prop];
           }
         }
@@ -875,6 +893,22 @@ export default {
   padding: 2px 5px;
   text-decoration: none;
   color: #FFF;
+}
+
+#scrollArrow {
+  animation: upDown 1.5s infinite;
+}
+
+@keyframes upDown {
+  0% {
+    top: 0;
+  }
+  33% {
+    top: 10px;
+  }
+  100% {
+    top: 0;
+  }
 }
 </style>
 

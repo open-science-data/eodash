@@ -158,6 +158,7 @@
                 :centerProp="localCenter[element.poi]"
                 :zoomProp="localZoom[element.poi]"
                 disableAutoFocus
+                :disableZoom="scrollyMode"
                 @update:center="c => {localCenter[element.poi] = c}"
                 @update:zoom="z => {localZoom[element.poi] = z}"
                 @update:datalayertime="d => {localDataLayerTime[element.poi] = d}"
@@ -190,6 +191,7 @@
               <indicator-data
                 v-else
                 disableAutoFocus
+                :disableZoom="scrollyMode"
                 :currentIndicator="element.indicatorObject"
                 class="pa-5 chart"
                 style="top: 0px; position: absolute;"
@@ -381,7 +383,7 @@
       </small>
     </div>
     <v-fab-transition
-      v-if="storyMode"
+      v-if="storyMode && !scrollyMode"
     >
       <div
         v-if="navigationButtonVisible"
@@ -440,6 +442,7 @@ export default {
     enableEditing: Boolean,
     popupOpen: Boolean,
     storyMode: Boolean,
+    scrollyMode: Boolean,
     localFeatures: Array,
     dashboardMeta: Object,
     themeColor: String,

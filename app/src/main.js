@@ -198,6 +198,7 @@ const renderVue = async () => {
       ]),
     { path: '/dashboard', component: DashboardCustom },
     { path: '/story', component: DashboardCustom },
+    { path: '/scrolly', component: DashboardCustom },
     { path: '/privacy', component: Privacy },
     { path: '/terms_and_conditions', component: Terms },
     { path: '/challenges', component: Challenges },
