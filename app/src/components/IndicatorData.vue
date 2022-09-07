@@ -1,4 +1,4 @@
-<template>
+ <template>
   <div style="width: 100%; height: 100%;"
     v-if="barChartIndicators.includes(indicatorObject.indicator)">
       <bar-chart v-if='datacollection'
@@ -85,6 +85,7 @@ export default {
   props: {
     currentIndicator: Object,
     disableAutoFocus: Boolean,
+    disableZoom: Boolean,
   },
   components: {
     BarChart,
@@ -1382,6 +1383,7 @@ export default {
         },
         yAxis: this.indicatorObject.yAxis,
         country: this.indicatorObject.country,
+        disableZoom: true,
       };
     },
   },

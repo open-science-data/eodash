@@ -118,7 +118,7 @@ export default {
           onPanComplete: this.extentChangedEvent,
         },
         zoom: {
-          enabled: true,
+          enabled: !this.options.disableZoom,
           mode: 'x',
           onZoomComplete: this.extentChangedEvent,
         },

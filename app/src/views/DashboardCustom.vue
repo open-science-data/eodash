@@ -857,6 +857,9 @@ export default {
       return false;
       /* eslint-enable */
     },
+    mouseWheelEventHandler() {
+
+    },
   },
 };
 </script>
