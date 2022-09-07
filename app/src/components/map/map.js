@@ -42,13 +42,6 @@ export default function getMapInstance(id, options = {}) {
     mapRegistry[id] = new VueMap(id, options);
   }
 
-  // TODO: also enable/disable DragPan conditionally
-  // const dragPan = new DragPan({
-  //   condition: function (event) {
-  //     return this.getPointerCount() === 2 || platformModifierKeyOnly(event);
-  //   },
-  // });
-
   // Check if in one of the calls the zoom is explicitly disabled in the options and store
   // the value in the mapRegistry
   if (options.disableZoom) {
@@ -72,11 +65,17 @@ export default function getMapInstance(id, options = {}) {
     const zoom = new MouseWheelZoom({
       condition: platformModifierKeyOnly,
     });
+    const dragPan = new DragPan({
+      condition: (event) => this.getPointerCount() === 2 || platformModifierKeyOnly(event),
+    });
     mapRegistry[id].map.addInteraction(zoom);
+    mapRegistry[id].map.addInteraction(dragPan);
   } else {
     // Else, allow normal zooming behaviour
     const zoom = new MouseWheelZoom();
+    const dragPan = new DragPan();
     mapRegistry[id].map.addInteraction(zoom);
+    mapRegistry[id].map.addInteraction(dragPan);
   }
   return mapRegistry[id];
 }
