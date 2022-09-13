@@ -898,6 +898,12 @@ export default {
   color: #FFF;
 }
 
+.scrollContainer {
+  &.disableScroll {
+    overflow-y: hidden !important;
+  }
+}
+
 #scrollArrow {
   animation: upDown 1.5s infinite;
 }

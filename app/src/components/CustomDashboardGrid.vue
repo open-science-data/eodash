@@ -5,6 +5,7 @@
     id="elementsContainer"
     v-scroll:#scroll-target="onScroll"
     :class="storyMode ? 'ma-0' : ''"
+    @wheel="onWheel"
   >
     <template v-for="(element, index) in features">
       <v-col v-if="!element.indicatorObject && !element.text" :key="index" cols="12">
@@ -468,6 +469,7 @@ export default {
     localUp: {},
     localDataLayerTime: {},
     localCompareLayerTime: {},
+    scrollDisabled: false,
     serverZoom: {},
     serverCenter: {},
     serverDirection: {},
@@ -552,11 +554,14 @@ export default {
       let currentRow;
       if (this.numberOfRows) {
         currentRow = Math.round((this.offsetTop - document.querySelector('#headerRow').clientHeight)
-          / (window.innerHeight
-            - this.$vuetify.application.top
-            - this.$vuetify.application.footer)) + 1;
+          / this.rowHeight) + 1;
       }
       return currentRow;
+    },
+    rowHeight() {
+      return window.innerHeight
+        - this.$vuetify.application.top
+        - this.$vuetify.application.footer;
     },
   },
   watch: {
@@ -706,6 +711,37 @@ export default {
     onScroll(e) {
       this.offsetTop = e.target.scrollTop;
     },
+    onWheel() {
+      if (this.scrollyMode) {
+        const modulo = this.offsetTop % this.rowHeight;
+        const currentTextArea = this.getCurrentTextArea();
+        console.log(typeof currentTextArea);
+
+        if (this.currentRow > 0 && !this.scrollDisabled && modulo >= 0 && modulo <= 10) {
+          document.getElementById('scroll-target').classList.add('disableScroll');
+          this.scrollDisabled = true;
+        } else if (this.scrollDisabled) {
+          if (currentTextArea.scrollHeight - currentTextArea.scrollTop === currentTextArea.clientHeight) {
+            document.getElementById('scroll-target').classList.remove('disableScroll');
+            console.log('removed');
+            this.scrollDisabled = false;
+          }
+        }
+      }
+    },
+    getCurrentTextArea() {
+      const textAreas = document.getElementsByClassName('textAreaContainer');
+
+      // eslint-disable-next-line no-restricted-syntax
+      for (const item of textAreas) {
+        const itemTop = this.getTopOffset(item);
+        console.log(itemTop, (this.currentRow - 1) * this.rowHeight);
+        if (itemTop === (this.currentRow - 1) * this.rowHeight) {
+          return item;
+        }
+      }
+      return null;
+    },
     goStep(direction) {
       let position;
       if (this.currentRow === 1 && direction === -1) {
@@ -831,7 +867,7 @@ export default {
     },
     getTopOffset(selector) {
       let offset = 0;
-      const element = document.querySelector(selector);
+      const element = selector instanceof Element ? selector : document.querySelector(selector);
       if (element && selector === this.showTextCurrent) {
         offset = (element
           .getBoundingClientRect().top - this.$vuetify.application.top) * -1;
@@ -943,6 +979,7 @@ export default {
   /* persist overflow value from animation */
   animation: .5s delay-overflow;
 }
+
 @keyframes delay-overflow {
   from { overflow: visible; }
 }
