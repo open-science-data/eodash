@@ -128,7 +128,7 @@
               <indicator-globe
                 v-else-if="element.indicatorObject.showGlobe"
                 class="pt-0 fill-height"
-                style="top: 0px; position: absolute;"
+                style="top: 0; position: absolute;"
                 :currentIndicator="element.indicatorObject"
                 :directionProp="localDirection[element.poi]"
                 :positionProp="localPosition[element.poi]"
@@ -195,7 +195,7 @@
                 :disableZoom="scrollyMode"
                 :currentIndicator="element.indicatorObject"
                 class="pa-5 chart"
-                style="top: 0px; position: absolute;"
+                style="top: 0; position: absolute;"
               />
             </div>
           </v-card>
@@ -715,13 +715,17 @@ export default {
       if (this.scrollyMode) {
         const modulo = this.offsetTop % this.rowHeight;
         const currentTextArea = this.getCurrentTextArea();
-        console.log(typeof currentTextArea);
 
-        if (this.currentRow > 0 && !this.scrollDisabled && modulo >= 0 && modulo <= 10) {
+        if (this.currentRow > 0
+          && !this.scrollDisabled
+          && currentTextArea
+          && modulo >= 0
+          && modulo <= 20) {
           document.getElementById('scroll-target').classList.add('disableScroll');
           this.scrollDisabled = true;
         } else if (this.scrollDisabled) {
-          if (currentTextArea.scrollHeight - currentTextArea.scrollTop === currentTextArea.clientHeight) {
+          if (currentTextArea.scrollHeight
+            - currentTextArea.scrollTop === currentTextArea.clientHeight) {
             document.getElementById('scroll-target').classList.remove('disableScroll');
             console.log('removed');
             this.scrollDisabled = false;
@@ -731,12 +735,14 @@ export default {
     },
     getCurrentTextArea() {
       const textAreas = document.getElementsByClassName('textAreaContainer');
+      const scrollContainer = document.getElementById('scroll-target');
 
       // eslint-disable-next-line no-restricted-syntax
       for (const item of textAreas) {
-        const itemTop = this.getTopOffset(item);
-        console.log(itemTop, (this.currentRow - 1) * this.rowHeight);
-        if (itemTop === (this.currentRow - 1) * this.rowHeight) {
+        const itemTop = item.getBoundingClientRect().top
+          - this.$vuetify.application.top
+          + scrollContainer.scrollTop;
+        if (itemTop === this.currentRow * this.rowHeight) {
           return item;
         }
       }
@@ -868,7 +874,7 @@ export default {
     getTopOffset(selector) {
       let offset = 0;
       const element = selector instanceof Element ? selector : document.querySelector(selector);
-      if (element && selector === this.showTextCurrent) {
+      if (element && selector === this.showTextCurrent - this.$vuetify.application.top) {
         offset = (element
           .getBoundingClientRect().top - this.$vuetify.application.top) * -1;
       }
