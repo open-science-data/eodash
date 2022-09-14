@@ -86,7 +86,7 @@
                   >
                     <v-btn
                       icon
-                      :dark="$vuetify.theme.dark ? true : false"
+                      :dark="$vuetify.theme.dark"
                       absolute
                       class="ma-2"
                       style="right: 0"
@@ -403,7 +403,7 @@
           fab
           icon
           small
-          :dark="$vuetify.theme.dark ? false : true"
+          :dark="!$vuetify.theme.dark"
           class="ma-1"
           @click="goStep(-1)"
         >
@@ -414,7 +414,7 @@
           fab
           icon
           small
-          :dark="$vuetify.theme.dark ? false : true"
+          :dark="!$vuetify.theme.dark"
           :disabled="currentRow === numberOfRows"
           class="ma-1"
           @click="goStep(+1)"
@@ -434,7 +434,7 @@ import IndicatorGlobe from '@/components/IndicatorGlobe.vue';
 import LoadingAnimation from '@/components/LoadingAnimation.vue';
 import { loadIndicatorData } from '@/utils';
 import CenterMap from '@/components/map/CenterMap.vue';
-import { mapGetters, mapState, mapActions } from 'vuex';
+import { mapActions, mapGetters, mapState } from 'vuex';
 
 const zoom = mediumZoom();
 
@@ -534,10 +534,7 @@ export default {
               !== this.serverCompareLayerTime[element.poi]) {
           return true;
         }
-        if (this.tooltipTrigger) {
-          return true;
-        }
-        return false;
+        return this.tooltipTrigger;
       };
     },
     navigationButtonVisible() {
@@ -605,6 +602,7 @@ export default {
   },
   mounted() {
     this.isMounted = true;
+    console.log(this.$vuetify.theme.dark, this.tooltipTrigger);
     setTimeout(() => {
       if (this.$route.query.page) {
         this.goStep(Number(this.$route.query.page));
@@ -727,7 +725,6 @@ export default {
           if (currentTextArea.scrollHeight
             - currentTextArea.scrollTop === currentTextArea.clientHeight) {
             document.getElementById('scroll-target').classList.remove('disableScroll');
-            console.log('removed');
             this.scrollDisabled = false;
           }
         }
