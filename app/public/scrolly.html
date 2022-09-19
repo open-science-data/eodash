@@ -172,12 +172,42 @@
                     return i === response.index;
                 });
 
-                let taggedImageSrc = app.imgData[response.index].text;
-                let imageSrc = taggedImageSrc.replaceAll('<--IMG-->', '');
+                let taggedSrc = app.imgData[response.index].text;
 
-                // update graphic based on step
-                figure.select('p')
-                    .html(`<img src="${imageSrc}" width="700" />`);
+                if (taggedSrc.includes('<--IMG-->')) {
+                    let imageSrc = taggedSrc.replaceAll('<--IMG-->', '');
+
+                    // update graphic based on step
+                    figure
+                        .select('p')
+                        .html(`<img src="${imageSrc}" width="700" />`);
+
+                } else if (taggedSrc.includes('<--VID-->')) {
+                    let videoSrc = taggedSrc.replaceAll('<--VID-->', '');
+
+                    figure
+                        .select('p')
+                        .html(`
+                            <div>
+                                <div class="step" data-step="0,128,128">
+                                    <p class="progress">0%</p>
+                                </div>
+                                <video src="${videoSrc}" width="700" />
+                            </div>
+                        `);
+                }
+            }
+
+            function handleStepProgress(response) {
+                var el = d3.select(response.element);
+
+                let duration = document.querySelector('video').duration;
+
+                console.log(response.progress);
+                window.requestAnimationFrame(() => {
+                    document.querySelector('video').currentTime = duration * response.progress;
+                });
+                d3.select(".progress").text(d3.format(".1%")(response.progress));
             }
 
             function init() {
@@ -192,9 +222,11 @@
                     .setup({
                         step: "#scrolly article .step",
                         offset: 0.33,
+                        progress: true,
                         debug: false
                     })
-                    .onStepEnter(handleStepEnter);
+                    .onStepEnter(handleStepEnter)
+                    .onStepProgress(handleStepProgress);
             }
 
             // kick things off
