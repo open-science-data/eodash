@@ -54,12 +54,17 @@
                                     :src="figure.text.replaceAll('<--IMG-->', '')"
                                     width="700"
                                     >
-                                <video
+                                <vue-scrubbable-video
                                     v-else-if="figure.text.includes('<--VID-->')"
-                                    :src="figure.text.replaceAll('<--VID-->', '')"
-                                    width="700"
+                                    :current-progress="progress"
+                                    :frames-per-second="13"
+                                    :start="0"
+                                    :end="8"
                                     >
-                                </video>
+                                    <source :src="figure.text.replaceAll('<--VID-->', '')" type="video/mp4" />
+                                </vue-scrubbable-video>
+
+                                {{ progress }}
                             </template>
                             <iframe
                                 v-else
@@ -79,7 +84,10 @@
 <script src="./iframeResizer.contentWindow.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vue@2.7.10/dist/vue.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script src="https://unpkg.com/@diracleo/vue-scrubbable-video/dist/vue-scrubbable-video.min.js"></script>
 <script>
+  Vue.use(VueScrubbableVideo);
+
   const app = new Vue({
     el: '#app',
     data: () => { return {
@@ -91,6 +99,7 @@
             step: 0,
         },
         figures: null,
+        progress: 0.0,
     }},
     created() {
         window.addEventListener('message', (message) => {
@@ -117,6 +126,7 @@
 
         // scrollama event handlers
         const handleStepEnter = (response) => {
+            console.log('stepEnter');
             // response = { element, direction, index }
             this.currentStep = {
                 section: parseInt(response.element.dataset.section),
@@ -125,11 +135,8 @@
         }
 
         const handleStepProgress = (response) => {
-            // update video based on step
-            let duration = document.querySelector('video').duration;
-            window.requestAnimationFrame(() => {
-                document.querySelector('video').currentTime = duration * response.progress;
-            });
+            console.log(response.progress);
+            this.progress = response.progress * 100.0;
         }
 
         const init = () => {
@@ -137,7 +144,7 @@
                 .setup({
                     root: document,
                     step: ".scrollySection article .step",
-                    offset: 0.33,
+                    offset: 0.5,
                     progress: true,
                     debug: false
                 })
