@@ -559,11 +559,11 @@ export default {
     const geoserverUrl = 'https://xcube-geodb.brockmann-consult.de/geoserver/geodb_debd884d-92f9-4979-87b6-eadef1139394/gwc/service/tms/1.0.0/';
 //https://xcube-geodb.brockmann-consult.de/geoserver/geodb_debd884d-92f9-4979-87b6-eadef1139394/wms?service=WMS&version=1.1.0&request=GetMap&layers=geodb_debd884d-92f9-4979-87b6-eadef1139394:gtif_test_gemeinden_AT_Gemeinden_3857&bbox=1056711.125,5838022.5,1914575.5,6280535.5&width=690&height=768&srs=EPSG:3857&styles=&format=application/openlayers#toggle
     const layerName = 'geodb_debd884d-92f9-4979-87b6-eadef1139394:gtif_test_gemeinden_AT_Gemeinden_3857';
-    const projString = '4326';
+    const projString = '3857';
     const testlayer = new VectorTileLayer({
       style: simpleStyleFunction,
       source: new VectorTileSource({
-        projection: 'EPSG:4326',
+        // projection: 'EPSG:3857',
         // tilePixelRatio: 1, // oversampling when > 1
         // tileGrid: createXYZ({ maxZoom: 19 }),
         format: new MVT(),
