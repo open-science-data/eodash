@@ -192,6 +192,8 @@ import {
 } from '@/utils';
 import VectorTileLayer from 'ol/layer/VectorTile';
 import VectorTileSource from 'ol/source/VectorTile';
+import TileLayer from 'ol/layer/Tile';
+import TileWMS from 'ol/source/TileWMS';
 import { createXYZ } from 'ol/tilegrid';
 import { MVT } from 'ol/format';
 import {
@@ -554,7 +556,6 @@ export default {
         width: 1,
       }),
     });
-    debugger;
     const simpleStyleFunction = () => simpleStyle;
     const geoserverUrl = 'https://xcube-geodb.brockmann-consult.de/geoserver/geodb_debd884d-92f9-4979-87b6-eadef1139394/gwc/service/tms/1.0.0/';
 //https://xcube-geodb.brockmann-consult.de/geoserver/geodb_debd884d-92f9-4979-87b6-eadef1139394/wms?service=WMS&version=1.1.0&request=GetMap&layers=geodb_debd884d-92f9-4979-87b6-eadef1139394:gtif_test_gemeinden_AT_Gemeinden_3857&bbox=1056711.125,5838022.5,1914575.5,6280535.5&width=690&height=768&srs=EPSG:3857&styles=&format=application/openlayers#toggle
@@ -563,14 +564,31 @@ export default {
     const testlayer = new VectorTileLayer({
       style: simpleStyleFunction,
       source: new VectorTileSource({
-        // projection: 'EPSG:3857',
+        projection: 'EPSG:3857',
         // tilePixelRatio: 1, // oversampling when > 1
         // tileGrid: createXYZ({ maxZoom: 19 }),
         format: new MVT(),
         url: `${geoserverUrl}${layerName}@EPSG%3A${projString}@pbf/{z}/{x}/{-y}.pbf`,
       }),
     });
+    testlayer.setZIndex(50);
     map.addLayer(testlayer);
+
+    //https://xcube-geodb.brockmann-consult.de/geoserver/geodb_debd884d-92f9-4979-87b6-eadef1139394/wms?SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&FORMAT=image%2Fpng&TRANSPARENT=true&STYLES&LAYERS=geodb_debd884d-92f9-4979-87b6-eadef1139394%3Agtif_test_gemeinden_AT_Gemeinden_3857&exceptions=application%2Fvnd.ogc.se_inimage&SRS=EPSG%3A3857&WIDTH=691&HEIGHT=768&BBOX=1225288.244833761%2C5733078.497512303%2C1646748.3091085842%2C6202181.873400802
+    const wmsLayer = new TileLayer({
+      source: new TileWMS({
+        url: 'https://xcube-geodb.brockmann-consult.de/geoserver/geodb_debd884d-92f9-4979-87b6-eadef1139394/wms',
+        params: {
+          LAYERS: 'geodb_debd884d-92f9-4979-87b6-eadef1139394:gtif_test_gemeinden_AT_Gemeinden_3857',
+          TILED: true,
+        },
+        serverType: 'geoserver',
+        transition: 0,
+      }),
+    });
+    wmsLayer.setZIndex(49);
+    map.addLayer(wmsLayer);
+
     this.loaded = true;
     this.$store.subscribe((mutation) => {
       if (mutation.type === 'indicators/INDICATOR_LOAD_FINISHED') {
