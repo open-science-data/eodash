@@ -7,7 +7,7 @@
   "sources": {
     "air_quality": {
       "type": "geojson",
-      "data": "https://eox-gtif-a.s3.eu-central-1.amazonaws.com/GTIF/AlpairEO/ZIP/{{time}}.geojson"
+      "data": "https://eox-gtif-a.s3.eu-central-1.amazonaws.com/GTIF/new_data/geojson/{{time}}.geojson"
     }
   },
   "layers": [
@@ -19,7 +19,7 @@
       }
     },
     {
-      "id": "PM10",
+      "id": "minHR",
       "type": "fill",
       "source": "air_quality",
       "filter": ["all"],
@@ -28,28 +28,28 @@
         "fill-color": [
           "interpolate",
           ["linear"],
-          ["get", "Mean PM10"],
-          0,
+          ["get", "Min Increased health risk"],
+          2.8,
           ["to-color", "#00531e"],
-          5,
+          2.9,
           ["to-color", "#c3e556"],
-          10,
+          3.0,
           ["to-color", "#ffdd56"],
-          15,
+          3.1,
           ["to-color", "#f67758"],
-          20,
+          3.2,
           ["to-color", "#ff973f"],
-          25,
+          3.3,
           ["to-color", "#ff6331"],
-          30,
+          3.4,
           ["to-color", "#d5001f"],
-          35,
+          3.5,
           ["to-color", "#63000d"]
         ]
       }
     },
     {
-      "id": "PM25",
+      "id": "maxHR",
       "type": "fill",
       "source": "air_quality",
       "filter": ["all"],
@@ -58,28 +58,28 @@
         "fill-color": [
           "interpolate",
           ["linear"],
-          ["get", "Mean PM25"],
-          0,
+          ["get", "Max Increased health risk"],
+          2.8,
           ["to-color", "#00531e"],
-          5,
+          2.9,
           ["to-color", "#c3e556"],
-          10,
+          3.0,
           ["to-color", "#ffdd56"],
-          15,
+          3.1,
           ["to-color", "#f67758"],
-          20,
+          3.2,
           ["to-color", "#ff973f"],
-          25,
+          3.3,
           ["to-color", "#ff6331"],
-          30,
+          3.4,
           ["to-color", "#d5001f"],
-          35,
+          3.5,
           ["to-color", "#63000d"]
         ]
       }
     },
     {
-      "id": "NO2",
+      "id": "meanHR",
       "type": "fill",
       "source": "air_quality",
       "filter": ["all"],
@@ -88,22 +88,22 @@
         "fill-color": [
           "interpolate",
           ["linear"],
-          ["get", "Mean NO2"],
-          0,
+          ["get", "Mean Increased health risk"],
+          2.8,
           ["to-color", "#00531e"],
-          5,
+          2.9,
           ["to-color", "#c3e556"],
-          10,
+          3.0,
           ["to-color", "#ffdd56"],
-          15,
+          3.1,
           ["to-color", "#f67758"],
-          20,
+          3.2,
           ["to-color", "#ff973f"],
-          25,
+          3.3,
           ["to-color", "#ff6331"],
-          30,
+          3.4,
           ["to-color", "#d5001f"],
-          35,
+          3.5,
           ["to-color", "#63000d"]
         ]
       }

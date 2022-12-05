@@ -496,18 +496,18 @@ export const globalIndicators = [
           sourceLayer: 'air_quality_AT',
           items: [
             {
-              id: 'NO2',
-              description: 'Nitrogen Dioxide',
+              id: 'minHR',
+              description: 'Minimum Increased Health Risk',
               markdown: 'AQ_NO2',
             },
             {
-              id: 'PM10',
-              description: 'Particulate Matter < 10µm',
+              id: 'maxHR',
+              description: 'Maximum Increased Health Risk',
               markdown: 'AQ_PM10',
             },
             {
-              id: 'PM25',
-              description: 'Particulate Matter < 2.5µm',
+              id: 'meanHR',
+              description: 'Mean Increased Health Risk',
               markdown: 'AQ_PM25',
             },
           ],
@@ -522,7 +522,7 @@ export const globalIndicators = [
             }],
           },
           protocol: 'vectorgeojson',
-          selectedStyleLayer: 'NO2',
+          selectedStyleLayer: 'meanHR',
           styleFile: 'data/gtif/data/air_quality_at.json',
           id: 'air_quality_AT',
           name: 'Air Quality',
