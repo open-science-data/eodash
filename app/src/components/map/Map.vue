@@ -199,6 +199,32 @@ import { MVT } from 'ol/format';
 import {
   Fill, Stroke, Style,
 } from 'ol/style';
+import colormap from 'colormap';
+
+import aqdata from '../../../public/data/gtif/data/aq_example_at.json';
+
+const min = 0;
+const max = 10;
+const steps = 50;
+const ramp = colormap({
+  colormap: 'blackbody',
+  nshades: steps,
+});
+
+function clamp(value, low, high) {
+  return Math.max(low, Math.min(value, high));
+}
+
+function getColor(feature) {
+  // const values = aqdata.O3.analysis.AT[feature.id_];
+
+  // currently no mapping between gemeinde ids and ids use here we use random to test if styling
+  // concept working in general
+  const pm10 = aqdata[Math.floor(Math.random() * 1931) + 1];
+  const f = clamp((pm10.mean - min) / (max - min), 0, 1);
+  const index = Math.round(f * (steps - 1));
+  return ramp[index];
+}
 
 const geoJsonFormat = new GeoJSON({
   featureProjection: 'EPSG:3857',
@@ -557,12 +583,21 @@ export default {
       }),
     });
     const simpleStyleFunction = () => simpleStyle;
+
+    const dynamicStyleFunction = (feature) => (new Style({
+      fill: new Fill({
+        color: getColor(feature),
+      }),
+      stroke: new Stroke({
+        color: 'rgba(255,255,255,0.8)',
+      }),
+    }))
     const geoserverUrl = 'https://xcube-geodb.brockmann-consult.de/geoserver/geodb_debd884d-92f9-4979-87b6-eadef1139394/gwc/service/tms/1.0.0/';
 //https://xcube-geodb.brockmann-consult.de/geoserver/geodb_debd884d-92f9-4979-87b6-eadef1139394/wms?service=WMS&version=1.1.0&request=GetMap&layers=geodb_debd884d-92f9-4979-87b6-eadef1139394:gtif_test_gemeinden_AT_Gemeinden_3857&bbox=1056711.125,5838022.5,1914575.5,6280535.5&width=690&height=768&srs=EPSG:3857&styles=&format=application/openlayers#toggle
     const layerName = 'geodb_debd884d-92f9-4979-87b6-eadef1139394:gtif_test_gemeinden_AT_Gemeinden_3857';
     const projString = '3857';
     const testlayer = new VectorTileLayer({
-      style: simpleStyleFunction,
+      style: dynamicStyleFunction,
       source: new VectorTileSource({
         projection: 'EPSG:3857',
         // tilePixelRatio: 1, // oversampling when > 1
@@ -575,6 +610,7 @@ export default {
     map.addLayer(testlayer);
 
     //https://xcube-geodb.brockmann-consult.de/geoserver/geodb_debd884d-92f9-4979-87b6-eadef1139394/wms?SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&FORMAT=image%2Fpng&TRANSPARENT=true&STYLES&LAYERS=geodb_debd884d-92f9-4979-87b6-eadef1139394%3Agtif_test_gemeinden_AT_Gemeinden_3857&exceptions=application%2Fvnd.ogc.se_inimage&SRS=EPSG%3A3857&WIDTH=691&HEIGHT=768&BBOX=1225288.244833761%2C5733078.497512303%2C1646748.3091085842%2C6202181.873400802
+    /*
     const wmsLayer = new TileLayer({
       source: new TileWMS({
         url: 'https://xcube-geodb.brockmann-consult.de/geoserver/geodb_debd884d-92f9-4979-87b6-eadef1139394/wms',
@@ -588,6 +624,7 @@ export default {
     });
     wmsLayer.setZIndex(49);
     map.addLayer(wmsLayer);
+    */
 
     this.loaded = true;
     this.$store.subscribe((mutation) => {
