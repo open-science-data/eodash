@@ -202,6 +202,7 @@ import {
 import colormap from 'colormap';
 
 import aqdata from '../../../public/data/gtif/data/aq_example_at.json';
+import aqMapping from '../../../public/data/gtif/data/dict_gem_id_rev.json';
 
 const min = 0;
 const max = 10;
@@ -216,13 +217,17 @@ function clamp(value, low, high) {
 }
 
 function getColor(feature) {
-  // const values = aqdata.O3.analysis.AT[feature.id_];
+  const value = aqdata[aqMapping[feature.id_]];
 
   // currently no mapping between gemeinde ids and ids use here we use random to test if styling
   // concept working in general
-  const pm10 = aqdata[Math.floor(Math.random() * 1931) + 1];
-  const f = clamp((pm10.mean - min) / (max - min), 0, 1);
-  const index = Math.round(f * (steps - 1));
+  // const pm10 = aqdata[Math.floor(Math.random() * 1931) + 1];
+  let index = 0;
+  if (value) {
+    const pm10 = value;
+    const f = clamp((pm10.mean - min) / (max - min), 0, 1);
+    index = Math.round(f * (steps - 1));
+  }
   return ramp[index];
 }
 
