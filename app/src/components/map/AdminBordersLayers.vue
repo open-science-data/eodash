@@ -261,7 +261,7 @@ export default {
       const { map } = getMapInstance(this.mapId);
       const pixel = map.getEventPixel(e.originalEvent);
       const feature = map.forEachFeatureAtPixel(pixel, (ftr) => ftr);
-      if (feature) {
+      if (false) {
         // add feature to highlight layer if feature is part of admin layer and set pointer cursor
         let anyAdminLayerHasFeature = null;
         let foundLayer = null;

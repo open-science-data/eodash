@@ -1,6 +1,7 @@
 import TileLayer from 'ol/layer/Tile';
 import VectorLayer from 'ol/layer/Vector';
 import VectorSource from 'ol/source/Vector';
+import VectorTileSource from 'ol/source/VectorTile';
 import XYZSource from 'ol/source/XYZ';
 import GeoJSON from 'ol/format/GeoJSON';
 import countries from '@/assets/countries.json';
@@ -10,6 +11,7 @@ import {
 import TileWMS from 'ol/source/TileWMS';
 import GeoTIFF from 'ol/source/GeoTIFF';
 import WebGLTileLayer from 'ol/layer/WebGLTile';
+import { MVT } from 'ol/format';
 import MapLibreLayer from '@geoblocks/ol-maplibre-layer';
 import store from '@/store';
 import TileGrid from 'ol/tilegrid/TileGrid';
@@ -258,6 +260,29 @@ export function createLayerFromConfig(config, _options = {}) {
           color: config.style.color || 'rgba(0, 0, 0, 0.5)',
         }),
       }),
+      maxZoom: config.maxZoom,
+      minZoom: config.minZoom,
+    }));
+  }
+  if (config.protocol === 'geoserverVectorTiles') {
+    const geoserverUrl = 'https://xcube-geodb.brockmann-consult.de/geoserver/geodb_debd884d-92f9-4979-87b6-eadef1139394/gwc/service/tms/1.0.0/';
+    const source = new VectorTileSource({
+      projection: 'EPSG:3857',
+      format: new MVT(),
+      url: `${geoserverUrl}${config.layerName}@EPSG%3A3857@pbf/{z}/{x}/{-y}.pbf`,
+    });
+    layers.push(new VectorTileLayer({
+      name: config.name,
+      style: new Style({
+        fill: new Fill({
+          color: config.style.fillColor || 'rgba(0, 0, 0, 0.5)',
+        }),
+        stroke: new Stroke({
+          width: config.style.weight || 1.5,
+          color: config.style.color || 'rgba(0, 0, 0, 0.5)',
+        }),
+      }),
+      source,
       maxZoom: config.maxZoom,
       minZoom: config.minZoom,
     }));

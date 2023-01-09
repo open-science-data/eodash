@@ -103,9 +103,9 @@ export const overlayLayersRightMap = [{
 }];
 
 const nutsStyle = {
-  attribution: 'Administrative boundaries: © EuroGeographics, © TurkStat. Source: European Commission – Eurostat/GISCO',
+  attribution: 'Administrative boundaries: © EuroGeographics, © TurkStat. Source: European Commission - Eurostat/GISCO',
   visible: true,
-  protocol: 'GeoJSON',
+  protocol: 'geoserverVectorTiles',
   style: {
     fillColor: 'rgba(0, 0, 0, 0)',
     color: '#006762',
@@ -115,47 +115,44 @@ const nutsStyle = {
 export const administrativeLayers = [{
   ...nutsStyle,
   name: 'NUTS L0',
-  url: 'data/gtif/data/AT_NUTS_L0.geojson',
+  layerName: 'geodb_debd884d-92f9-4979-87b6-eadef1139394:GTIF_AT_NUTS_L0_3857',
   maxZoom: 7.5,
 }, {
   ...nutsStyle,
   name: 'NUTS L1',
-  url: 'data/gtif/data/AT_NUTS_L1.geojson',
+  layerName: 'geodb_debd884d-92f9-4979-87b6-eadef1139394:GTIF_AT_NUTS_L1_3857',
   minZoom: 7.5,
   maxZoom: 8.5,
 }, {
   ...nutsStyle,
   name: 'NUTS L2',
-  url: 'data/gtif/data/AT_NUTS_L2.geojson',
+  layerName: 'geodb_debd884d-92f9-4979-87b6-eadef1139394:GTIF_AT_NUTS_L2_3857',
   minZoom: 8.5,
   maxZoom: 9.5,
 }, {
   ...nutsStyle,
   name: 'NUTS L3',
-  url: 'data/gtif/data/AT_NUTS_L3.geojson',
+  layerName: 'geodb_debd884d-92f9-4979-87b6-eadef1139394:GTIF_AT_NUTS_L3_3857',
   minZoom: 9.5,
   maxZoom: 10.5,
 }, {
   ...nutsStyle,
-  protocol: 'flatgeobuf',
   name: 'District (Bezirk)',
-  url: '//eox-gtif-public.s3.eu-central-1.amazonaws.com/admin_borders/STATISTIK_AUSTRIA_POLBEZ_20220101.fgb',
+  layerName: 'geodb_debd884d-92f9-4979-87b6-eadef1139394:GTIF_AT_Bezirke_3857',
   minZoom: 10.5,
   maxZoom: 12,
   attribution: 'Data source: Statistics Austria — data.statistik.gv.at',
 }, {
   ...nutsStyle,
-  protocol: 'flatgeobuf',
   name: 'Municipality (Gemeinde)',
-  url: '//eox-gtif-public.s3.eu-central-1.amazonaws.com/admin_borders/STATISTIK_AUSTRIA_GEM_20220101.fgb',
+  layerName: 'geodb_debd884d-92f9-4979-87b6-eadef1139394:GTIF_AT_Gemeinden_3857',
   minZoom: 12,
   maxZoom: 13.5,
   attribution: 'Data source: Statistics Austria — data.statistik.gv.at',
 }, {
   ...nutsStyle,
-  protocol: 'flatgeobuf',
   name: 'Census Track (Zählsprengel)',
-  url: '//eox-gtif-public.s3.eu-central-1.amazonaws.com/admin_borders/STATISTIK_AUSTRIA_ZSP_20220101.fgb',
+  layerName: 'geodb_debd884d-92f9-4979-87b6-eadef1139394:GTIF_AT_Zaehlsprengel_3857',
   minZoom: 13.5,
   attribution: 'Data source: Statistics Austria — data.statistik.gv.at',
 }];
