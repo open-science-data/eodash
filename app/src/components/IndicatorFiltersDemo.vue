@@ -6,24 +6,27 @@
   >
     <!-- <v-btn>Reset</v-btn> -->
     <v-btn
+      v-show="demoItems.length > 5"
       color="primary"
+      :disabled="!canScrollUpwards"
       @click="scroll('up')"
     >
       <v-icon>mdi-chevron-up</v-icon>
     </v-btn>
     <div
       ref="scrollContainer"
-      class="scrollContainer"
-      style="overflow: auto">
+      class="scrollContainer py-4 d-flex flex-column flex-grow-1"
+      style="overflow: auto"
+      @scroll="onScroll"
+    >
       <v-card
         v-for="demoItem in demoItems"
         :key="getLocationCode(demoItem.properties.indicatorObject)"
         :color="getLocationCode(demoItem.properties.indicatorObject) === selectedItem
           ? 'primary'
           : 'white'"
-        height="200"
         width="200"
-        class="my-3 overflow-hidden d-flex flex-column pa-1"
+        class="item overflow-hidden d-flex flex-column pa-1"
         style="pointer-events: all"
         @click="selectItem(demoItem)"
       >
@@ -47,7 +50,9 @@
       </v-card>
     </div>
     <v-btn
+      v-show="demoItems.length > 5"
       color="primary"
+      :disabled="!canScrollDownwards"
       @click="scroll('down')"
     >
       <v-icon>mdi-chevron-down</v-icon>
@@ -67,6 +72,9 @@ import { getMapInstance } from './map/map';
 export default {
   data: () => ({
     selectedItem: null,
+    scrollTop: 0,
+    canScrollUpwards: false,
+    canScrollDownwards: true,
   }),
   computed: {
     ...mapState('config', ['appConfig']),
@@ -131,6 +139,12 @@ export default {
           //
       }
     },
+    onScroll() {
+      let el = this.$refs.scrollContainer;
+      this.scrollTop = el.scrollTop;
+      this.canScrollUpwards = el.scrollTop !== 0;
+      this.canScrollDownwards = !(el.scrollTop === el.scrollHeight - el.clientHeight);
+    },
   },
   watch: {
     demoItems(items) {
@@ -142,10 +156,24 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .scrollContainer {
   scrollbar-width: none;  /* Firefox */
+  scroll-snap-type: y proximity;
+
+  .item {
+    height: calc(20% - 16px);
+    flex: 0 0 auto;
+    background-color: #ccc;
+    margin-bottom: 20px;
+    scroll-snap-align: center;
+
+    &:last-child {
+      margin-bottom: 0 !important;
+    }
+  }
 }
+
 .scrollContainer::-webkit-scrollbar {
   display: none;  /* Safari and Chrome */
 }
