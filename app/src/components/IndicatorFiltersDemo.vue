@@ -140,7 +140,7 @@ export default {
       }
     },
     onScroll() {
-      let el = this.$refs.scrollContainer;
+      const el = this.$refs.scrollContainer;
       this.scrollTop = el.scrollTop;
       this.canScrollUpwards = el.scrollTop !== 0;
       this.canScrollDownwards = !(el.scrollTop === el.scrollHeight - el.clientHeight);
