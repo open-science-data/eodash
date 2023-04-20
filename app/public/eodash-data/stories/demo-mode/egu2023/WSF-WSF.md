@@ -1,6 +1,6 @@
 ## About the World Settlement Footprint Indicator
 
-Urban sprawl (i.e. dispersed expansion of settlements at low densities) impacts the environment, economy and society. According to research, between 1990 and 2014 humans converted more land to settlements than in all previous millennia combined and urban sprawl almost doubled globally, increasing by close to 4% per year. 
+Urban sprawl (i.e. dispersed expansion of settlements at low densities) impacts the environment, economy and society. According to research [1], between 1990 and 2014 humans converted more land to settlements than in all previous millennia combined and urban sprawl almost doubled globally, increasing by close to 4% per year. 
 
 <iframe src="https://ourworldindata.org/grapher/urban-population-share-2050?time=2050" loading="lazy" style="width: 100%; height: 600px; border: 0px none;"></iframe>
 
@@ -27,6 +27,8 @@ More on mapping our human footprint from space in this [ESA Webstory](https://ww
 
 
 ### References
+
+[1] Rapid rise in urban sprawl: Global hotspots and trends since 1990, Behnisch M, Krüger T, Jaeger JAG (2022) Rapid rise in urban sprawl: Global hotspots and trends since 1990. PLOS Sustainability and Transformation 1(11): e0000034. https://doi.org/10.1371/journal.pstr.0000034
 
 [2] Future of urbanisation: Hannah Ritchie and Max Roser (2018) - "Urbanization". Published online at OurWorldInData.org. Retrieved from: 'https://ourworldindata.org/urbanization' [Online Resource]
 
